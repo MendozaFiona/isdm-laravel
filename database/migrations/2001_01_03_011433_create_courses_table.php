@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendanceTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAttendanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance', function (Blueprint $table) {
-            $table->id('att_id')->primary();
-            $table->foreign('student_id')->references('student_id')->on('students');
-            $table->foreign('event_id')->references('event_id')->on('events');
+        Schema::create('courses', function (Blueprint $table) {
+            $table->string('course_id')->primary();
+            $table->string('course_name');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateAttendanceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance');
+        Schema::dropIfExists('courses');
     }
 }

@@ -20,7 +20,9 @@ class CreateStudentsTable extends Migration
             $table->string('student_gender');
             $table->string('student_contact');
             $table->string('student_email');
+            $table->string('course_id');
             $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->string('org_id');
             $table->foreign('org_id')->references('org_id')->on('organizations');
             $table->timestamps();
         });
