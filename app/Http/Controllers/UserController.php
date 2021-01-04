@@ -72,8 +72,10 @@ class UserController extends Controller
         // to not store anything if teacher_id is null
         if($teacher_check != null){
             $user->teacher_id = $request->input('teacher_id');
+            $user->role_id = '1';
         } else {
             $user->student_id = $request->input('student_id');
+            $user->role_id = '2';
         }
         
         $user->save();
