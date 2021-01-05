@@ -1,0 +1,10 @@
+if teacher id is not null then role_id is 1
+
+reminder that outside tables (integrated into system for easy access) are the ff.:
+students
+course
+teacher
+organization
+fee
+
+composer dump-autoload

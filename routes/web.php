@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Auth::routes(); // from bootstrap install
 
-Route::get('/login', function () {
-    return view('pages/login');
-});
-//Auth::routes();
+// routes for views/pages display
+Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('login');
+Route::get('/register', [App\Http\Controllers\PagesController::class, 'register'])->name('register');
+Route::get('/dashboard', [App\Http\Controllers\PagesController::class, 'dashboard'])->name('dashboard');
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// routes for user transactions
+Route::resources([
+    'users' => UserController::class,
+]);

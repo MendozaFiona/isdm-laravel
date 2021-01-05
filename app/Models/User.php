@@ -11,12 +11,17 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    // table name
+    protected $table = 'users';
+
+    public $primary_key = 'user_id';
+
     protected $fillable = [
         'user_name',
         'user_pass',
-        'user_role',
+        'user_role', // no input from form, automatically assigned
         'student_id', // either should be filled
-        'teacher_id',
+        //'teacher_id', //removed, uncomment if needed
     ];
 
   
