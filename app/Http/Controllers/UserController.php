@@ -17,7 +17,8 @@ class UserController extends Controller
     
     public function index() // show all users
     {
-        return view('users/index');
+        $users = User::all();
+        return view('pages/viewUsers')->with('users', $users);
         // perform an additional layout for user information
     }
 

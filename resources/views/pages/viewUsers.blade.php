@@ -5,11 +5,21 @@
     <h5 class="title-2">View All Users</h5>
 </div>
 
+@if(count($users) > 1)
+    @foreach($users as $user)
+        <div class="well">
+            <h1>{{$user->user_name}}</h1>
+        </div>
+@else 
+    <p>No Users</p>
+@endif
+
 <div class="au-card au-card-top-countries m-b-40">
     <div class="au-card-inner">
         <div class="table-responsive">
             <table class="table table-top-countries">
                 <tbody>
+
                     <tr>
                         <td>Name</td>
                         <td class="text-right">your name</td>
