@@ -27,8 +27,12 @@
                 </tbody>
             </table>
         </div>
-        <button type="button" class="btn btn-danger btn-lg">Delete Event</button>
-        <button type="button" class="btn btn-warning btn-lg pull-right">Edit Event</button>
-        </div>
+
+        {!!Form::open(['action' => ['App\Http\Controllers\EventController@destroy', $event->id], 'method' => 'DELETE'])!!}
+            {{Form::submit('Delete Event', ['class' => "btn btn-danger btn-lg pull-left"])}}
+        {!!Form::close() !!}
+
+        <a href="/events/{{$event->id}}/edit" class="btn btn-warning btn-lg pull-right">Edit Event</a>
+    </div>
 </div>
 @endsection

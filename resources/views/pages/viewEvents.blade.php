@@ -20,17 +20,19 @@
 
                 <tbody>
 
-                    @if(count($events) > 1)
+                    @if(count($events) > 0)
                         @foreach($events as $event)
-                                <tr onclick="window.location='/events/{{$event->event_id}}'">
-                                    <td>{{$event->event_id}}</td>
+                                <tr onclick="window.location='/events/{{$event->id}}'">
+                                    <td>{{$event->id}}</td>
                                     <td>{{$event->event_name}}</td>
                                     <td>{{$event->event_date}}</td>
                                     <td>{{$event->event_desc}}</td>
                                 </tr>
                         @endforeach
                     @else 
-                        <p>No events</p>
+                        <tr>
+                            <td>No events yet</td>
+                        </tr>
                     @endif
 
                     

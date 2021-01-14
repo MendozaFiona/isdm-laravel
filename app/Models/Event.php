@@ -14,7 +14,8 @@ class Event extends Authenticatable
     // table name
     protected $table = 'events';
 
-    public $primary_key = 'event_id';
+    public $primary_key = 'id';
+    public $timestamps = false;
 
     protected $fillable = [
         'event_name',

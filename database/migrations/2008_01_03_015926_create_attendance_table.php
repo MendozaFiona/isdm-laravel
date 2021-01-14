@@ -14,11 +14,11 @@ class CreateAttendanceTable extends Migration
     public function up()
     {
         Schema::create('attendance', function (Blueprint $table) {
-            $table->bigIncrements('att_id');
+            $table->bigIncrements('id');
             $table->bigInteger('student_id');
             $table->foreign('student_id')->references('student_id')->on('students');
             $table->bigInteger('event_id')->unsigned();
-            $table->foreign('event_id')->references('event_id')->on('events');
+            $table->foreign('event_id')->references('id')->on('events');
             $table->timestamps();
         });
     }

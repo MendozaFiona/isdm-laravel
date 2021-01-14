@@ -21,8 +21,8 @@
 
                     @if(count($users) > 1)
                         @foreach($users as $user)
-                                <tr onclick="window.location='/users/{{$user->user_id}}'">
-                                    <td>{{$user->user_id}}</td>
+                                <tr onclick="window.location='/users/{{$user->id}}'">
+                                    <td>{{$user->id}}</td>
                                     <td class="text-right">{{$user->user_name}}</td>
                                 </tr>
                         @endforeach
