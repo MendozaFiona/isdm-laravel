@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// model that we are using
+use App\Models\User;
+
+// the following are added utilities!
+use Illuminate\Support\Facades\DB;
+
 class PagesController extends Controller
 {
     public function index(){
@@ -51,8 +57,9 @@ class PagesController extends Controller
         return view('pages/createEvents');
     }
 
-    public function viewUsers(){
-        return view('pages/viewUsers');
+    public function viewUsers(){ // NOT USED!!!
+        $users = User::all();
+        return view('pages/viewUsers')->with('users', $users);
     }
 
     public function viewEvents(){

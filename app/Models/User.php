@@ -21,7 +21,7 @@ class User extends Authenticatable
         'user_pass',
         'user_role', // no input from form, automatically assigned
         'student_id', // either should be filled
-        //'teacher_id', //removed, uncomment if needed
+        'teacher_id', //removed, uncomment if needed
     ];
 
   

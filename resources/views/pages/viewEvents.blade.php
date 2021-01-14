@@ -8,40 +8,32 @@
 <div class="au-card au-card-top-countries m-b-40">
     <div class="au-card-inner">
         <div class="table-responsive">
-            <table class="table table-top-countries">
+            <table class="table table-hover table-top-countries">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Event Name</th>
+                        <th>Event Date</th>
+                        <th>Event Description</th>
+                    </tr>
+                </thead>
+
                 <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td class="text-right">your name</td>
-                    </tr>
-                    <tr>
-                        <td>Username</td>
-                        <td class="text-right">your username</td>
-                    </tr>
-                    <tr>
-                        <td>School ID</td>
-                        <td class="text-right">#############</td>
-                    </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td class="text-right">## Year</td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td class="text-right">your gender</td>
-                    </tr>
-                    <tr>
-                        <td>Course</td>
-                        <td class="text-right">your course</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td class="text-right">your email</td>
-                    </tr>
-                    <tr>
-                        <td>Contact</td>
-                        <td class="text-right">your contact</td>
-                    </tr>
+
+                    @if(count($events) > 1)
+                        @foreach($events as $event)
+                                <tr onclick="window.location='/events/{{$event->event_id}}'">
+                                    <td>{{$event->event_id}}</td>
+                                    <td>{{$event->event_name}}</td>
+                                    <td>{{$event->event_date}}</td>
+                                    <td>{{$event->event_desc}}</td>
+                                </tr>
+                        @endforeach
+                    @else 
+                        <p>No events</p>
+                    @endif
+
+                    
                 </tbody>
             </table>
         </div>

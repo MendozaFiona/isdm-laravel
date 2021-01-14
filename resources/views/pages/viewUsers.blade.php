@@ -5,53 +5,32 @@
     <h5 class="title-2">View All Users</h5>
 </div>
 
-@if(count($users) > 1)
-    @foreach($users as $user)
-        <div class="well">
-            <h1>{{$user->user_name}}</h1>
-        </div>
-@else 
-    <p>No Users</p>
-@endif
 
 <div class="au-card au-card-top-countries m-b-40">
     <div class="au-card-inner">
         <div class="table-responsive">
-            <table class="table table-top-countries">
+            <table class="table table-hover table-top-countries">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>User ID</th>
+                        <th class="text-right">Username</th>
+                    </tr>
+                </thead>
+
                 <tbody>
 
-                    <tr>
-                        <td>Name</td>
-                        <td class="text-right">your name</td>
-                    </tr>
-                    <tr>
-                        <td>Username</td>
-                        <td class="text-right">your username</td>
-                    </tr>
-                    <tr>
-                        <td>School ID</td>
-                        <td class="text-right">#############</td>
-                    </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td class="text-right">## Year</td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td class="text-right">your gender</td>
-                    </tr>
-                    <tr>
-                        <td>Course</td>
-                        <td class="text-right">your course</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td class="text-right">your email</td>
-                    </tr>
-                    <tr>
-                        <td>Contact</td>
-                        <td class="text-right">your contact</td>
-                    </tr>
+                    @if(count($users) > 1)
+                        @foreach($users as $user)
+                                <tr onclick="window.location='/users/{{$user->user_id}}'">
+                                    <td>{{$user->user_id}}</td>
+                                    <td class="text-right">{{$user->user_name}}</td>
+                                </tr>
+                        @endforeach
+                    @else 
+                        <p>No Users</p>
+                    @endif
+
+                    
                 </tbody>
             </table>
         </div>

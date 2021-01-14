@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index() // show all users
     {
         $users = User::all();
-        return view('pages/viewUsers')->with('users', $users);
+        return view('pages/viewUsers')->with('users', $users); // pagesctrlr is not used!
         // perform an additional layout for user information
     }
 
@@ -110,7 +110,8 @@ class UserController extends Controller
     
     public function show($id) //show a specific User
     {
-        //
+        $user = User::where('user_id','=',$id)->first();
+        return $user;
     }
 
 

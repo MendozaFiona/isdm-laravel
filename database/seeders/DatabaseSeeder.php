@@ -178,5 +178,19 @@ class DatabaseSeeder extends Seeder
             ),
         ));
 
+        // Default Event
+        DB::table('events')->insert(array(
+            array(
+                'event_name' => 'test event 1',
+                'event_desc' => 'the first test event at gym lobby',
+                'event_date' => '2021-02-14',
+            ),
+            array(
+                'event_name' => 'test event 2',
+                'event_desc' => 'the second test event at ict building 9',
+                'event_date' => '2021-05-21',
+            ),
+        ));
+
     }
 }
