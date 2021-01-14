@@ -24,29 +24,18 @@ class EventController extends Controller
    
     public function create()
     {
-        $validator = Validator::make($request->all(),[
+        return view('pages/createEvents');
+
+    }
+
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
             'event_name' => 'required',
-            'event_date' => 'required', // please put a restriction on format! including in the view page!
+            'event_date' => 'required|date_format:Y-m-d|after:today', // please put a restriction on format! including in the view page!
             'event_desc' => 'required',
-
         ]);
-
-        if($validator->fails()){
-
-            $errors = $validator->errors(); // detects errors and stores in individual variables
-            $err = array(
-                // ff. stores detected errors for each field in ther $err array
-                'event_name' => $errors->first('event_name'),
-                'event_date' => $errors->first('event_date'),
-                'event_desc' => $errors->first('event_desc'),
-            );
-
-            return response()->json(array(
-                'message' => 'Cannot process request. Input errors.',
-                'errors' => $err
-            ), 422);
-
-        }
 
         $event = new Event;
 
@@ -56,17 +45,7 @@ class EventController extends Controller
         
         $event->save();
         
-        return response()->json(array(
-            'message' => 'Registration Successful',
-            'event' => $event
-        ), 201);
-
-    }
-
-
-    public function store(Request $request)
-    {
-        //
+        return redirect('/events')->with('success', 'Event Added');
     }
 
     

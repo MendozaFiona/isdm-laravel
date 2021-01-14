@@ -111,7 +111,7 @@ class UserController extends Controller
     public function show($id) //show a specific User
     {
         $user = User::where('user_id','=',$id)->first();
-        return $user;
+        return view('users/show')->with('user', $user);
     }
 
 

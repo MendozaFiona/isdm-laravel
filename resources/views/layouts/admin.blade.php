@@ -54,7 +54,7 @@
                                     <div class="au-task__item au-task__item--warning">
                                         <div class="au-task__item-inner">
                                             <h5 class="task">
-                                                <a href="/create-events">Create Event</a>
+                                                <a href="/events/create">Create Event</a>
                                             </h5>
                                         </div>
                                     </div>
@@ -78,6 +78,7 @@
                         </div>
     
                         <div class="col-lg-8">
+                            @include('inc.messages')
                             @yield('content')
                         </div>
                         

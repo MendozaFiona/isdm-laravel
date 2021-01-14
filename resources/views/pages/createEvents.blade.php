@@ -8,21 +8,27 @@
 <div class="au-card au-card-top-countries m-b-40">
     <div class="au-card-inner">
         <div>
-            <form>
+            {!! Form::open(['action' => 'App\Http\Controllers\EventController@store', 'method' => 'POST']) !!}
+
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Event Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="event name">
+                    {{Form::label('event_name', 'Event Name')}}
+                    {{Form::text('event_name', '', ['class' => "form-control", 'placeholder' => "event name"])}}
                 </div>
+
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Event Date</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="yyyy/mm/dd">
+                    {{Form::label('event_date', 'Event Date')}}
+                    {{Form::text('event_date', '', ['class' => "form-control", 'placeholder' => "event date"])}}
                 </div>
+
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Event Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="event description"></textarea>
-                  </div>
-                <button type="submit" class="btn btn-primary btn-lg pull-right">Submit</button>
-              </form>
+                    {{Form::label('event_desc', 'Event Description')}}
+                    {{Form::textarea('event_desc', '', ['class' => "form-control", 'placeholder' => "event description"])}}
+                </div>
+
+                {{Form::submit('Submit', ['class' => "btn btn-primary btn-lg pull-right"])}}
+    
+            {!! Form::close() !!}  
+            
         </div>
     </div>
 </div>
