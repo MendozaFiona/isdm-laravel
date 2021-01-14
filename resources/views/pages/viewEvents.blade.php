@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="au-card recent-report">
-    <h5 class="title-2">User Profile</h5>
+    <h5 class="title-2">View All Events</h5>
 </div>
 
 <div class="au-card au-card-top-countries m-b-40">

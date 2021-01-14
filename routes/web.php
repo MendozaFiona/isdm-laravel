@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\PagesController::class, 'register'])->name('register');
 Route::get('/dashboard', [App\Http\Controllers\PagesController::class, 'dashboard'])->name('dashboard');
+Route::get('/create-events', [App\Http\Controllers\PagesController::class, 'createEvents'])->name('create-events');
+Route::get('/view-users', [App\Http\Controllers\PagesController::class, 'viewUsers'])->name('view-users');
+Route::get('/view-events', [App\Http\Controllers\PagesController::class, 'viewEvents'])->name('view-events');
 
 // routes for user transactions
 Route::resources([

@@ -47,4 +47,16 @@ class PagesController extends Controller
         return view('pages/dashboard');
     }
 
+    public function createEvents(){
+        return view('pages/createEvents');
+    }
+
+    public function viewUsers(){
+        return view('pages/viewUsers');
+    }
+
+    public function viewEvents(){
+        return view('pages/viewEvents');
+    }
+
 }
