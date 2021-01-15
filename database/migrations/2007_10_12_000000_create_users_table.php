@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('role_id')->on('roles');
             $table->bigInteger('student_id')->nullable();
-            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->foreign('student_id')->references('student_id')->on('students')->nullable();
             $table->bigInteger('teacher_id')->nullable();
-            $table->foreign('teacher_id')->references('teacher_id')->on('teachers');
+            $table->foreign('teacher_id')->references('teacher_id')->on('teachers')->nullable();
             $table->timestamps();
         });
     }

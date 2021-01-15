@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -166,17 +167,26 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert(array(
             array(
                 'username' => 'johnreele',
-                'password' => 'passtest',
+                'password' => Hash::make('passtest'),
                 'role_id' => '2',
                 'student_id' => '2020170982',
             ),
             array(
                 'username' => 'gerviemay',
-                'password' => 'password',
+                'password' => Hash::make('password'),
                 'role_id' => '2',
                 'student_id' => '2019106709',
             ),
         ));
+
+        DB::table('users')->insert(
+            array(
+                'username' => 'tr_maria',
+                'password' => Hash::make('adminpass'),
+                'role_id' => '1',
+                'teacher_id' => '2005204365',
+            ),
+        );
 
         // Default Event
         DB::table('events')->insert(array(
