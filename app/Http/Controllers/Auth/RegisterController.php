@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Fee;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 //use \Illuminate\Database\QueryException;
 //use Illuminate\Validation\ValidationException;
 
@@ -58,6 +60,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'school_id' => 'required',
+            'amount' => ['required', 'regex:/^\d+(\.\d{1,2})?$/'],
         ]);
     }
 
@@ -73,6 +76,17 @@ class RegisterController extends Controller
         $check = Student::find($data['school_id']);
         
         if($check != null){
+            $fee = new Fee;
+
+            //optional if you want varying fee_id
+            //$mytime = Carbon::now();
+            //$id = $data['school_id'].$mytime->toDateTimeString();
+
+            $fee->amount = $data['amount'];
+            $fee->student_id = $data['school_id'];
+
+            $fee->save();
+
             return User::create([
                 'username' => $data['username'],
                 'student_id' => $data['school_id'],
