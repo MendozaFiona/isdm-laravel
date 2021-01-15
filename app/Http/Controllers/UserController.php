@@ -27,8 +27,8 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(),[
             // user_id is automatically generated
-            'user_name' => 'required',
-            'user_pass' => 'required',
+            'username' => 'required',
+            'password' => 'required',
             'user_role' => 'required',
             'student_id' => 'required', // either should be filled
             //'teacher_id' => 'required_without:student_id', // either should be filled
@@ -40,8 +40,8 @@ class UserController extends Controller
             $errors = $validator->errors(); // detects errors and stores in individual variables
             $err = array(
                 // ff. stores detected errors for each field in ther $err array
-                'user_name' => $errors->first('user_name'),
-                'user_pass' => $errors->first('user_pass'),
+                'username' => $errors->first('username'),
+                'password' => $errors->first('password'),
                 'user_role' => $errors->first('user_role'),
                 'student_id' => $errors->first('student_id'),
                 //'teacher_id' => $errors->first('teacher_id'),
@@ -58,9 +58,9 @@ class UserController extends Controller
 
         $user = new User;
 
-        $user->user_name = $request->input('user_name');
+        $user->username = $request->input('username');
         // this is to hash the user password in the database
-        $user->user_pass = Hash::make($request->input('user_pass'));
+        $user->password = Hash::make($request->input('password'));
         /* NOTE:
             role_id will automatically be 2 for member registration,
             only one teacher/moderator will be 1 for admin

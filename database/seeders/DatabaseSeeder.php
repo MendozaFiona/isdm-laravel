@@ -165,14 +165,14 @@ class DatabaseSeeder extends Seeder
         // Default User
         DB::table('users')->insert(array(
             array(
-                'user_name' => 'johnreele',
-                'user_pass' => 'passtest',
+                'username' => 'johnreele',
+                'password' => 'passtest',
                 'role_id' => '2',
                 'student_id' => '2020170982',
             ),
             array(
-                'user_name' => 'gerviemay',
-                'user_pass' => 'password',
+                'username' => 'gerviemay',
+                'password' => 'password',
                 'role_id' => '2',
                 'student_id' => '2019106709',
             ),

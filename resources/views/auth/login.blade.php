@@ -16,10 +16,10 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="user_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="user_name" id="user_name" placeholder="Username" class="@error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
+                            <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="username" id="username" placeholder="Username" class="@error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
                         
-                            @error('user_name')
+                            @error('username')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -28,10 +28,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="user_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="user_pass" id="user_pass" placeholder="Password" class="@error('user_pass') is-invalid @enderror" name="user_pass" required autocomplete="current-user_pass">
+                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="password" id="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             
-                            @error('user_pass')
+                            @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

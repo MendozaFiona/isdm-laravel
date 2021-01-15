@@ -17,8 +17,8 @@ class User extends Authenticatable
     public $primary_key = 'id';
 
     protected $fillable = [
-        'user_name',
-        'user_pass',
+        'username',
+        'password',
         'role_id', // no input from form, automatically assigned
         'student_id', // either should be filled
         'teacher_id', //removed, uncomment if needed
@@ -26,7 +26,7 @@ class User extends Authenticatable
 
   
     protected $hidden = [
-        'user_pass',
+        'password',
         'remember_token',
     ];
 

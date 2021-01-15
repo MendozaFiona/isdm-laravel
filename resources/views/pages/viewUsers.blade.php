@@ -23,7 +23,7 @@
                         @foreach($users as $user)
                                 <tr onclick="window.location='/users/{{$user->id}}'">
                                     <td>{{$user->id}}</td>
-                                    <td class="text-right">{{$user->user_name}}</td>
+                                    <td class="text-right">{{$user->username}}</td>
                                 </tr>
                         @endforeach
                     @else 

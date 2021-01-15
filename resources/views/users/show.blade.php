@@ -13,7 +13,7 @@
                 
                     <tr>
                         <td>Username</td>
-                        <td>{{$user->user_name}}</td>
+                        <td>{{$user->username}}</td>
                     </tr>
                     <tr>
                         <td>Student ID</td>
