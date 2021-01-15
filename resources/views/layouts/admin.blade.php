@@ -78,7 +78,7 @@
                                         <div class="au-task__item au-task__item--danger">
                                             <div class="au-task__item-inner">
                                                 <h5 class="task">
-                                                    <a href="#">Create Event Attendance</a>
+                                                    <a href="/attendance">Add Event Attendance</a>
                                                 </h5>
                                             </div>
                                         </div>
