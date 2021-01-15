@@ -117,18 +117,35 @@ class UserController extends Controller
 
     public function edit($id) // edits profile, receives edit info from user
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('users/edit')->with('user', $user);
     }
 
     
     public function update(Request $request, $id) // update db, receives from editUser
     {
-        //
+        $user = User::find($id);
+
+        $this->validate($request, [
+            'username' => 'required',
+            'role_id' => 'required',
+        ]);
+
+        $user->username = $request->input('username');
+        $user->role_id = $request->input('role_id');
+
+        $user->save();
+        
+        return redirect('/users')->with('success', 'User Updated');
     }
 
     
     public function destroy($id) //delete User
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect('/users')->with('success', 'User Deleted');
     }
 }

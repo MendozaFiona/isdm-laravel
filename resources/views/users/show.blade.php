@@ -27,8 +27,13 @@
                 </tbody>
             </table>
         </div>
-        <button type="button" class="btn btn-danger btn-lg">Delete User</button>
-        <button type="button" class="btn btn-warning btn-lg pull-right">Edit User</button>
+
+        {!!Form::open(['action' => ['App\Http\Controllers\UserController@destroy', $user->id], 'method' => 'DELETE'])!!}
+            {{Form::submit('Delete User', ['class' => "btn btn-danger btn-lg pull-left"])}}
+        {!!Form::close() !!}
+
+        <a href="/users/{{$user->id}}/edit" class="btn btn-warning btn-lg pull-right">Edit User</a>
+
         </div>
 </div>
 @endsection

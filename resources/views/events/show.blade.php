@@ -27,12 +27,13 @@
                 </tbody>
             </table>
         </div>
+        @if(Auth::user()->role_id == 1)
+            {!!Form::open(['action' => ['App\Http\Controllers\EventController@destroy', $event->id], 'method' => 'DELETE'])!!}
+                {{Form::submit('Delete Event', ['class' => "btn btn-danger btn-lg pull-left"])}}
+            {!!Form::close() !!}
 
-        {!!Form::open(['action' => ['App\Http\Controllers\EventController@destroy', $event->id], 'method' => 'DELETE'])!!}
-            {{Form::submit('Delete Event', ['class' => "btn btn-danger btn-lg pull-left"])}}
-        {!!Form::close() !!}
-
-        <a href="/events/{{$event->id}}/edit" class="btn btn-warning btn-lg pull-right">Edit Event</a>
+            <a href="/events/{{$event->id}}/edit" class="btn btn-warning btn-lg pull-right">Edit Event</a>
+        @endif
     </div>
 </div>
 @endsection

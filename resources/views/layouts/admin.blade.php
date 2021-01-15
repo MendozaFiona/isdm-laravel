@@ -51,20 +51,22 @@
                                             </h5>
                                         </div>
                                     </div>
-                                    <div class="au-task__item au-task__item--danger">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="/users">View All Users</a>
-                                            </h5>
+                                    @if(Auth::user()->role_id == 1)
+                                        <div class="au-task__item au-task__item--danger">
+                                            <div class="au-task__item-inner">
+                                                <h5 class="task">
+                                                    <a href="/users">View All Users</a>
+                                                </h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="au-task__item au-task__item--warning">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="/events/create">Create Event</a>
-                                            </h5>
+                                        <div class="au-task__item au-task__item--warning">
+                                            <div class="au-task__item-inner">
+                                                <h5 class="task">
+                                                    <a href="/events/create">Create Event</a>
+                                                </h5>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     <div class="au-task__item au-task__item--primary">
                                         <div class="au-task__item-inner">
                                             <h5 class="task">
@@ -72,13 +74,15 @@
                                             </h5>
                                         </div>
                                     </div>
-                                    <div class="au-task__item au-task__item--danger">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="#">Create Event Attendance</a>
-                                            </h5>
+                                    @if(Auth::user()->role_id == 1)
+                                        <div class="au-task__item au-task__item--danger">
+                                            <div class="au-task__item-inner">
+                                                <h5 class="task">
+                                                    <a href="#">Create Event Attendance</a>
+                                                </h5>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     
                                 </div>
                             </div>

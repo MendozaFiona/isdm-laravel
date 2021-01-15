@@ -9,10 +9,7 @@
     <div class="au-card-inner">
         <div>
             {!! Form::open(['action' => ['App\Http\Controllers\EventController@update', $event->id], 'method' => 'PUT']) !!}
-            
-                <p>{{$event->id}}</p>
-
-
+        
                 <div class="form-group">
                     {{Form::label('event_name', 'Event Name')}}
                     {{Form::text('event_name', $event->event_name, ['class' => "form-control", 'placeholder' => "event name"])}}
