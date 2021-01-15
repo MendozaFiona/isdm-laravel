@@ -21,10 +21,12 @@
 
                     @if(count($users) > 1)
                         @foreach($users as $user)
+                            @if($user->role_id != 1)
                                 <tr onclick="window.location='/users/{{$user->id}}'">
                                     <td>{{$user->id}}</td>
                                     <td class="text-right">{{$user->username}}</td>
                                 </tr>
+                            @endif
                         @endforeach
                     @else 
                         <p>No Users</p>

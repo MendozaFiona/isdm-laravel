@@ -11,37 +11,39 @@
             <table class="table table-top-countries">
                 <tbody>
                     <tr>
-                        <td>Name</td>
-                        <td class="text-right">your name</td>
+                        <td>User ID</td>
+                        <td class="text-right">{{ Auth::user()->id }}</td>
                     </tr>
                     <tr>
                         <td>Username</td>
-                        <td class="text-right">your username</td>
+                        <td class="text-right">{{ Auth::user()->username }}</td>
                     </tr>
+
+                    @if(Auth::user()->student_id != null)
+                        <tr>
+                            <td>School ID</td>
+                            <td class="text-right">{{ Auth::user()->student_id }}</td>
+                        </tr>
+                    @endif
+
+                    @if(Auth::user()->student_id == null)
+                        <tr>
+                            <td>Teacher ID</td>
+                            <td class="text-right">{{ Auth::user()->teacher_id }}</td>
+                        </tr>
+                    @endif
+
                     <tr>
-                        <td>School ID</td>
-                        <td class="text-right">#############</td>
+                        <td>Role</td>
+                            @if(Auth::user()->role_id == 1)
+                                <td class="text-right">Moderator</td>
+                            @endif
+
+                            @if(Auth::user()->role_id == 2)
+                                <td class="text-right">Member</td>  
+                            @endif
                     </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td class="text-right">## Year</td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td class="text-right">your gender</td>
-                    </tr>
-                    <tr>
-                        <td>Course</td>
-                        <td class="text-right">your course</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td class="text-right">your email</td>
-                    </tr>
-                    <tr>
-                        <td>Contact</td>
-                        <td class="text-right">your contact</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>

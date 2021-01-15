@@ -47,7 +47,7 @@
                                     <div class="au-task__item au-task__item--primary">
                                         <div class="au-task__item-inner">
                                             <h5 class="task">
-                                                <a href="/dashboard">View User Info</a>
+                                                <a href="/">View User Info</a>
                                             </h5>
                                         </div>
                                     </div>
