@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Auth::routes(); // from bootstrap install
+Auth::routes(); // from bootstrap install
 
 // routes for views/pages display
-Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('login');
-Route::get('/register', [App\Http\Controllers\PagesController::class, 'register'])->name('register');
-Route::get('/dashboard', [App\Http\Controllers\PagesController::class, 'dashboard'])->name('dashboard');
-Route::get('/view-events', [App\Http\Controllers\PagesController::class, 'viewEvents'])->name('view-events');
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+//Route::get('/register', [App\Http\Controllers\PagesController::class, 'register'])->name('register');
+//Route::get('/view-events', [App\Http\Controllers\PagesController::class, 'viewEvents'])->name('view-events');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // routes for user transactions
 Route::resources([
@@ -32,3 +32,5 @@ Route::resources([
 Route::resources([
     'events' => EventController::class,
 ]);
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

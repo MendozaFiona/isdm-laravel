@@ -21,7 +21,14 @@
             <div class="section__content section__content--p30">    
                 <div class="header-wrap">          
                     <div class="content">
-                        <a class="js-acc-btn" href="#">Logout</a>
+                        <a class="js-acc-btn" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>  
                 </div>
             </div>
