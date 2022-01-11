@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateAdminTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('event_name');
-            $table->text('event_desc');
-            $table->date('event_date');
-            $table->timestamps();
+        Schema::create('admin', function (Blueprint $table) {
+            $table->id('admin_id');
+            $table->string('admin_name');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('admin');
     }
 }
