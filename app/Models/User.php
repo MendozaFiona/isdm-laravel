@@ -12,20 +12,22 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     // table name
-    protected $table = 'users';
+    protected $table = 'user';
 
-    public $primary_key = 'id';
+    public $timestamps = false;
+
+    public $primary_key = 'user_id';
 
     protected $fillable = [
-        'username',
+        'email',
         'password',
         'role_id', // no input from form, automatically assigned
-        'student_id', // either should be filled
-        'teacher_id', //removed, uncomment if needed
+        'resident_id', // either should be filled
+        'admin_id', //removed, uncomment if needed
     ];
 
   
-    protected $hidden = [
+    /*protected $hidden = [
         'password',
         'remember_token',
     ];
@@ -33,7 +35,7 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ];*/
 
     
 }

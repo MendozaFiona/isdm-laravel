@@ -17,18 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('admin')->insert(array(
             array(
-                'name' => 'Irish Mae Maturan',
+                'admin_name' => 'Irish Mae Maturan',
             ),
         ));
             
         // tentative, do you have street names lists?
-        DB::table('street')->insert(array(
+        /*DB::table('street')->insert(array(
             array(
                 'street_name' => '',
                 'rep_name' => '',
                 'rep_phone' => '',
             ),
-        ));
+        ));*/
             
         // is this monthly or annual income
         DB::table('family')->insert(array(
@@ -55,13 +55,13 @@ class DatabaseSeeder extends Seeder
         ));
             
         // need the proof table but i still dk how to add image
-        DB::table('proof')->insert(array(
+        /*DB::table('proof')->insert(array(
             array(
                 'proof_type' => '',
                 'proof_pic' => '',
                 'resident_id' => '1',
             ),
-        ));
+        ));*/
             
         DB::table('user')->insert(array(
             array(
@@ -70,6 +70,9 @@ class DatabaseSeeder extends Seeder
                 'role_id' => '2',
                 'resident_id' => '1',
             ),
+        ));
+
+        DB::table('user')->insert(array(
             array(
                 'email' => 'imae.maturan@gmail.com',
                 'password' => Hash::make('irishpass'), // still not sure about this
