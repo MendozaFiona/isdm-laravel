@@ -14,7 +14,7 @@ class CreateOrgServiceTable extends Migration
     public function up()
     {
         Schema::create('org_service', function (Blueprint $table) {
-            $table->id('service_id');
+            $table->id('id');
             $table->string('service_name');
             $table->string('service_desc');
         });

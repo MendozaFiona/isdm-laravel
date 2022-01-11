@@ -8,14 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
     <title>Brgy. Nazareth Residential System</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <img class="navbar-brand" src='images/brgylogo.png' href="#">
+        <img class="navbar-brand" src='{{ asset('images/brgylogo.png') }}' href="#">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,13 +23,20 @@
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
            
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href=userdashboard.html>HOME</a>
+              <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="profile.html">PROFILE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="userlogin.html">LOGOUT</a>
+              <a class="nav-link" aria-current="page" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                LOGOUT
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </li>
               </ul>
         </div>
@@ -38,7 +45,7 @@
     <div class="homebody">
       <div class="row">
         <div class="col">
-          <img src="images/dashb1.jpg">
+          <img src="{{ asset('images/dashb1.jpg') }}">
           <!-- <div class="bottom-left">Bottom Left</div> -->
           
         </div>
@@ -53,7 +60,7 @@
             <tr>
               <th scope="row"></th>
               <td>
-                <img class="news1"src="images/dash2.jpg">
+                <img class="news1"src="{{ asset('images/dash2.jpg') }}">
               </td>
               <td>
                 <h4>FOOD PACKS DISTRIBUTION</h4>
@@ -69,7 +76,7 @@
             <tr>
               <th scope="row"></th>
               <td>
-                <img class="news1"src="images/dash3.jpg">
+                <img class="news1"src="{{ asset('images/dash3.jpg') }}">
               </td>
               <td class="">
                 <h4>MAGMINANTAYON SA SUNOG!</h4>
@@ -89,7 +96,7 @@
             <tr>
               <th scope="row"></th>
               <td>
-                <img class="news1"src="images/dash6.jpg">
+                <img class="news1"src="{{ asset('images/dash6.jpg') }}">
               </td>
               <td class="">
                 <h4>DOST SCHOLARSHIP PROGRAM</h4>

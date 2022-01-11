@@ -19,6 +19,7 @@ trait AuthenticatesUsers
     public function showLoginForm()
     {
         return view('user.userlogin');
+        //return csrf_token(); 
     }
 
     /**

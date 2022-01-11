@@ -14,7 +14,7 @@ class CreateFamilyServiceTable extends Migration
     public function up()
     {
         Schema::create('family_service', function (Blueprint $table) {
-            $table->id('famservice_id');
+            $table->id('id');
             $table->integer('service_id')->references('service_id')->on('org_service');
             $table->integer('family_id')->references('family_id')->on('family');
         });

@@ -8,14 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="{{ asset('css/admindashboard.css') }}">
 
     <title>Admin Dashboard</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <img class="navbar-brand brgylogo" src='images/brgylogo.png' href="#">
+          <img class="navbar-brand brgylogo" src="{{ asset('images/brgylogo.png') }}" href="#">
           <h3>BARANGAY NAZARETH RESIDENTIAL INFORMATION SYSTEM</h3>
           </div>
         </div>
@@ -27,7 +27,7 @@
           <div class="input-group">
               <span class="badge  bg-secondary">25</span>
               <span class="space"></span>
-              <img class="icons" src="images/household.png">
+              <img class="icons" src="{{ asset('images/household.png') }}">
           </div>
           <p><br>HOUSEHOLD<br>NUMBER</p>        
         </div>
@@ -35,7 +35,7 @@
             <div class="input-group">
                 <span class="badge  bg-secondary">100</span>
                 <span class="space"></span>
-                <img class="icons" src="images/totalpop.png">
+                <img class="icons" src="{{ asset('images/totalpop.png') }}">
             </div>
             <p><br>TOTAL<br>POPULATION</p>  
         </div>
@@ -43,7 +43,7 @@
             <div class="input-group">
                 <span class="badge  bg-secondary">25</span>
                 <span class="space"></span>
-                <img class="icons" src="images/pendingreq.png">
+                <img class="icons" src="{{ asset('images/pendingreq.png') }}">
             </div>
             <p class="pendp"><br>PENDING<br>REQUEST</p>
           </a>        
@@ -60,7 +60,7 @@
         <div class="input-group">
             <span class="badge  bg-secondary">25</span>
             <span class="space"></span>
-            <img class="icons" src="images/female.png">
+            <img class="icons" src="{{ asset('images/female.png') }}">
         </div>
         <p><br>FEMALE</p>        
       </div>
@@ -68,7 +68,7 @@
           <div class="input-group">
               <span class="badge  bg-secondary">100</span>
               <span class="space"></span>
-              <img class="icons" src="images/male.png">
+              <img class="icons" src="{{ asset('images/male.png') }}">
           </div>
           <p><br>MALE</p>  
       </div>
@@ -76,7 +76,7 @@
           <div class="input-group">
               <span class="badge  bg-secondary">25</span>
               <span class="space"></span>
-              <img class="icons" src="images/senior.png">
+              <img class="icons" src="{{ asset('images/senior.png') }}">
           </div>
           <p><br>SENIORS</p>        
         </div>
@@ -84,7 +84,7 @@
             <div class="input-group">
                 <span class="badge  bg-secondary">25</span>
                 <span class="space"></span>
-                <img class="icons" src="images/pwd.png">
+                <img class="icons" src="{{ asset('images/pwd.png') }}">
             </div>
             <p><br>PWDs</p>        
           </div>
@@ -114,7 +114,14 @@
         </tr>
         <tr>
           <td>
-            <a type="button"  href="adminlogin.html"  class="btn btn-warning">LOGOUT</a>
+            <a type="button"  href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" 
+              class="btn btn-warning">LOGOUT
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
           </td>
         </tr>
         <td>

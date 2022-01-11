@@ -8,14 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/residentrec.css">
+    <link rel="stylesheet" href="{{ asset('css/residentrec.css') }}">
 
     <title>Admin Dashboard</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <img class="navbar-brand brgylogo" src='images/brgylogo.png' href="#">
+          <img class="navbar-brand brgylogo" src='{{ asset('images/brgylogo.png') }}' href="#">
           <h3>BARANGAY NAZARETH RESIDENTIAL INFORMATION SYSTEM</h3>
           </div>
         </div>
@@ -258,7 +258,14 @@
     </tr>
     <tr>
       <td>
-        <a type="button"  href="adminlogin.html"  class="btn btn-warning">LOGOUT</a>
+        <a type="button"  href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();" 
+          class="btn btn-warning">LOGOUT
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
       </td>
     </tr>
     <td>

@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         $role = Auth::user()->role_id;
 
-        dd('idiot');
         if($role == 1){
             return view('admin/dashboard');
         } else {

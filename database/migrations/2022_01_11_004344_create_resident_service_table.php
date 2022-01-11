@@ -14,7 +14,7 @@ class CreateResidentServiceTable extends Migration
     public function up()
     {
         Schema::create('resident_service', function (Blueprint $table) {
-            $table->id('resservice_id');
+            $table->id('id');
             $table->integer('service_id')->references('service_id')->on('org_service');
             $table->integer('resident_id')->references('resident_id')->on('resident');
         });

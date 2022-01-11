@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/adminlogin.css">
+    <link rel="stylesheet" href="{{ asset('css/adminlogin.css') }}">
 
     <title>Brgy. Nazareth Residential System</title>
   </head>
@@ -16,12 +16,12 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <img class="brgylogo" src="images/brgylogo.png">
+        <img class="brgylogo" src="{{ asset('images/brgylogo.png') }}">
         <h1 class='user-title'>RESIDENTIAL <br/> INFORMATION SYSTEM <h1>
       </div>
       <div class="col">
         <div class='container-2'>
-          <img class="userlogo" src="images/userlogo.png">
+          <img class="userlogo" src="{{ asset('images/userlogo.png') }}">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email</label>
               <input  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

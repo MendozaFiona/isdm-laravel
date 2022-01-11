@@ -14,7 +14,7 @@ class CreateStreetTable extends Migration
     public function up()
     {
         Schema::create('street', function (Blueprint $table) {
-            $table->id('street_id');
+            $table->id('id');
             $table->string('street_name');
             $table->string('rep_name');
             $table->string('rep_phone');

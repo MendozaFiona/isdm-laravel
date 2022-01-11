@@ -14,7 +14,7 @@ class CreateProofTable extends Migration
     public function up()
     {
         Schema::create('proof', function (Blueprint $table) {
-            $table->id('proof_id');
+            $table->id('id');
             $table->string('proof_type');
             $table->binary('proof_pic');
             $table->integer('resident_id')->references('resident_id')->on('resident');

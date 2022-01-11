@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/viewmore.css">
+    <link rel="stylesheet" href="{{ asset('css/viewmore.css') }}">
 
     
     <title>Residential Registration</title>
@@ -18,7 +18,7 @@
     <div class="container-3">
       <div class='row'>
         <div class='col'>
-      <img class="brgylogo2" src="images/brgylogo.png">
+      <img class="brgylogo2" src="{{ asset('images/brgylogo.png') }}">
     </div>
   </div>
   <div class="row">
@@ -75,7 +75,7 @@
         </div>
         <div class="row">
           <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="CITY SCHOLAR" type="input" class="idid" aria-describedby="emailHelp"/>
-          <img class="idimage" src="images/student_card.png">           
+          <img class="idimage" src="{{ asset('images/student_card.png') }}">           
         </div>
       
             <div class="space"></div>
@@ -87,7 +87,7 @@
               </div>
               <div class="row">
                 <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="LEASE CONTRACT" type="input" class="idid" aria-describedby="emailHelp"/>
-                <img class="idimage" src="images/lease.png">           
+                <img class="idimage" src="{{ asset('images/lease.png') }}">           
               </div>
             
               <div class="row-3">
