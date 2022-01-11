@@ -52,7 +52,7 @@
                     <td>F</td>
                     <td>22</td>
                     <td>0905776881</td>
-                     <th scope="col"><a style="text-decoration: none" href="viewmore.html" class="btnn-more" type="button">MORE</a></th>
+                     <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
                      <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
                      <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
                   </tr>
@@ -62,7 +62,7 @@
                     <td>F</td>
                     <td>30</td>
                     <td>0905756181</td>
-                    <th scope="col"><a style="text-decoration: none" href="viewmore.html" class="btnn-more" type="button">MORE</a></th>
+                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
                      <th scope="col"><a style="text-decoration: none" class="btnn-acc" class="link" type="button">ACCEPT</a></th>
                      <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
                   </tr>
@@ -72,7 +72,7 @@
                     <td>F</td>
                     <td>30</td>
                     <td>0907856181</td>
-                    <th scope="col"><a style="text-decoration: none" href="viewmore.html" class="btnn-more" type="button">MORE</a></th>
+                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
                     <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
                     <th scope="col"><a style="text-decoration: none"  class="btnn-rej"  class="link" type="button">REJECT</a></th>
                   </tr>
@@ -82,7 +82,7 @@
                     <td>F</td>
                     <td>30</td>
                     <td>0907856181</td>
-                    <th scope="col"><a style="text-decoration: none" href="viewmore.html" class="btnn-more" type="button">MORE</a></th>
+                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
                     <th scope="col"><a style="text-decoration: none" class="btnn-acc" class="link" type="button">ACCEPT</a></th>
                     <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
                   </tr>

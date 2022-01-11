@@ -39,7 +39,7 @@
             </div>
             <p><br>TOTAL<br>POPULATION</p>  
         </div>
-        <div class="pend"><a class="pend-color" style="text-decoration: none" type="button" href="pendingreq.html">
+        <div class="pend"><a class="pend-color" style="text-decoration: none" type="button" href="/pending">
             <div class="input-group">
                 <span class="badge  bg-secondary">25</span>
                 <span class="space"></span>
@@ -94,22 +94,22 @@
     <table>
         <tr>
           <td>
-            <a type="button" class="btn btn-warning">DASHBOARD</a>
+            <a type="button" href="/" class="btn btn-warning">DASHBOARD</a>
           </td>
         </tr>
         <tr>
           <td>
-            <a type="button" href="residentrec.html" class="btn btn-warning">RESIDENT RECORD</a>
+            <a type="button" href="/records" class="btn btn-warning">RESIDENT RECORD</a>
           </td>
         </tr>
         <tr>
           <td>
-            <a type="button"  href="grants.html"  class="btn btn-warning">GRANT</a>
+            <a type="button"  href="/grants"  class="btn btn-warning">GRANT</a>
           </td>
         </tr>
         <tr>
           <td>
-            <a type="button"  href="status.html"  class="btn btn-warning">CREATE NEWS</a>
+            <a type="button"  href="/news"  class="btn btn-warning">CREATE NEWS</a>
           </td>
         </tr>
         <tr>

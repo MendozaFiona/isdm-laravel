@@ -57,7 +57,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0905776881</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -69,7 +69,7 @@
                     <td>NO</td>
                     <td>3</td>
                     <td>0905756181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -81,7 +81,7 @@
                     <td>NO</td>
                     <td>6</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -93,7 +93,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -105,7 +105,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -117,7 +117,7 @@
                     <td>NO</td>
                     <td></td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -129,7 +129,7 @@
                     <td>YES</td>
                     <td>3</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -141,7 +141,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -153,7 +153,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -165,7 +165,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -177,7 +177,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -189,7 +189,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -201,7 +201,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                     <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -213,7 +213,7 @@
                     <td>YES</td>
                     <td>5</td>
                     <td>0907856181</td>
-                    <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                    <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -225,7 +225,7 @@
                     <td>5</td>
                     <td>Single</td>
                     <td>0907856181</td>
-                    <th scope="col"><a href="viewmore.html" class="link" type="button">more</a></th>
+                    <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
                   </tr>
                 </tbody>
               </table>
@@ -238,22 +238,22 @@
   <table>
     <tr>
       <td>
-        <a type="button" href="dashboard.html" class="btn btn-warning">DASHBOARD</a>
+        <a type="button" href="/" class="btn btn-warning">DASHBOARD</a>
       </td>
     </tr>
     <tr>
       <td>
-        <a type="button" href="residentrec.html" class="btn btn-warning">RESIDENT RECORD</a>
+        <a type="button" href="/records" class="btn btn-warning">RESIDENT RECORD</a>
       </td>
     </tr>
     <tr>
       <td>
-        <a type="button"  href="grants.html"  class="btn btn-warning">GRANT</a>
+        <a type="button"  href="/grants"  class="btn btn-warning">GRANT</a>
       </td>
     </tr>
     <tr>
       <td>
-        <a type="button"  href="status.html"  class="btn btn-warning">CREATE NEWS</a>
+        <a type="button"  href="/news"  class="btn btn-warning">CREATE NEWS</a>
       </td>
     </tr>
     <tr>

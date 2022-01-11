@@ -28,7 +28,7 @@
               <label  for="exampleInputPassword1" class="form-label">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
               <div class="space"></div>
-            <a href="dashboard.html">
+            <a href="/">
             <button class='button'type="register" >submit</button>
             </a>
           </form>

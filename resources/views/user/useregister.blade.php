@@ -247,7 +247,7 @@
             <div class="row">
               
               <div class="d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-warning " href="userdashboard.html" type="button">SUBMIT</a>
+                <a class="btn btn-warning " href="/" type="button">SUBMIT</a>
               </div>
            
             <div class="space"></div>

@@ -26,7 +26,7 @@
               <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="profile.html">PROFILE</a>
+              <a class="nav-link" aria-current="page" href="/profile">PROFILE</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{{ route('logout') }}"
