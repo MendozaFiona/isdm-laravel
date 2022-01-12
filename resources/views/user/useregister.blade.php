@@ -144,153 +144,153 @@
         </div>
         </div>
         <div>
-          <!-- maybe change this to type? -->
-          <label for="student"><input name="student" type="radio" id="radio_1">Student</label>
-          <label for="unemployed"><input name="unemployed" type="radio">Unemployed</label>
-          <label for="employed"><input name="employed" type="radio">Employed</label>
-          <label for="self-employed"><input name="self-employed" type="radio">Self-employed</label>
-      </div>
+          <!-- maybe change this to type?-->
+          <label for="student"><input name="type" id="radio_1" type="radio" value="Student">Student</label>
+          <label for="unemployed"><input name="type" type="radio" value="Unemployed">Unemployed</label>
+          <label for="employed"><input name="type" type="radio" value="Employed">Employed</label>
+          <label for="self-employed"><input name="type" type="radio" value="Self-employed">Self-employed</label>
+          
+        </div>
       <!-- IF STUDENT DISPLAY -->
-      <div class="s box">
+      <div class="Student box">
         <div class="input-group">
               <label for="occname"></label>
               <select name="occupation_name">
-                <option value="javascript">-- education Stage --</option>
-                <option value="javascript">Elementary</option>
-                <option value="php">High School</option>
-                <option value="java">College</option>
-                <option value="golang">TESDA</option>
+                <option>-- Education Stage --</option>
+                <option>Elementary</option>
+                <option>High School</option>
+                <option>College</option>
+                <option>TESDA</option>
               </select>
           <label for="company"></label>
-          <input placeholder="Scholarship Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company" placeholder="Scholarship Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
-          <label for="idnum"></label>
-          <input placeholder="ID Number"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <label for="id_num"></label>
+          <input name="id_num" placeholder="ID Number"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF UNEMPLOYED -->
-      <div class="u box">
+      <div class="Unemployed box">
         <div class="input-group">
           <label for="occname"></label>
-          <select name="languages">
-            <option value="javascript">PWD</option>
-            <option value="php">Senior</option>
-            <option value="java">None</option>
+          <select name="occupation_name">
+            <option>PWD</option>
+            <option>Senior</option>
+            <option>None</option>
           </select>
           
           <input placeholder="Upload ID according to the selection:"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
-      <div class="e box">
+      <div class="Employed box">
         <div class="input-group">
           <label for="occname1"></label>
-          <input placeholder="Occupation #1"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="occupation_name1" placeholder="Occupation #1"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company1"></label>
-          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company1" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic1"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic1" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
         <div class="input-group">
           <label for="occname2"></label>
-          <input placeholder="Occupation #2"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="occupation_name2" placeholder="Occupation #2"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company2"></label>
-          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company2" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic2"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic2" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
         <div class="input-group">
           <label for="occname3"></label>
-          <input placeholder="Occupation #3"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="occupation_name3" placeholder="Occupation #3"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company3"></label>
-          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company3" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic3"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic3" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF SELF-EMPLOYED -->
-      <div class="se box">
+      <div class="Self-employed box">
         <div class="input-group">
           <label for="company"></label>
-          <input placeholder="Business name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company" placeholder="Business name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <input placeholder="Upload business permit (optional):"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       
       <div class="space"></div>
       <div class="row">
         <div class='col-4'>
-        <label for="address" class="form-label">  UPLOAD VALID PROOF OF RESIDENCE:</label>
+          <label for="addr" class="form-label">  UPLOAD VALID PROOF OF RESIDENCE:</label>
         </div>
-        <div class="col">
-          <div class="dropdown-3">
-            <a class="btn btn-secondary dropdown-toggle btns" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Select any valid proof of residence
-            </a>
-
-            <!--does this work here???-->
-            <label for="prooftype"></label>
-            <ul class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#">UMID</a></li>
-              <li><a class="dropdown-item" href="#">Driver License</a></li>
-              <li><a class="dropdown-item" href="#">Barangay Certificate</a></li>
-              <li><a class="dropdown-item" href="#">Police ID/Clearance</a></li>
-              <li><a class="dropdown-item" href="#">Water Bill</a></li>
-              <li><a class="dropdown-item" href="#">Electricity Bill</a></li>
-              <li><a class="dropdown-item" href="#">Landline Phone Bill</a></li>
-              <li><a class="dropdown-item" href="#">Postpaid Line Bill</a></li>
-              <li><a class="dropdown-item" href="#">Internet Bill</a></li>
-              <li><a class="dropdown-item" href="#">Bank Statement with Address</a></li>
-              <li><a class="dropdown-item" href="#">Credit Card Statement Account (SoA)</a></li>
-              <li><a class="dropdown-item" href="#">National of Investigation (NBI clearance)</a></li>
-              <li><a class="dropdown-item" href="#">Lease Contract</a></li>
-
-            </ul>
-          </div>
+        <div class="col-4">
+          
+          
+          <label for="prooftype">Select any valid proof of residence</label>
+          <select name="prooftype">
+            <option>UMID</option>
+            <option>Driver License</option>
+            <option>Barangay Certificate</option>
+            <option>Police ID/Clearance</option>
+            <option>Water Bill</option>
+            <option>Electricity Bill</option>
+            <option>Landline Phone Bill</option>
+            <option>Postpaid Line Bill</option>
+            <option>Internet Bill</option>
+            <option>Bank Statement with Address</option>
+            <option>Credit Card Statement Account (SoA)</option>
+            <option>National of Investigation (NBI clearance)</option>
+            <option>Lease Contract</option>
+          </select>
+          
         </div>
         
       
-        <div class="col">
-          <div class="input-group ig2">
+        <div class="col-4">
+          <div class="input-group">
             <label for="proofpic"></label>
-            <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <input name="proofpic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
         </div>
-        <div class="row-3">
-          <div class="space"></div>
-        <div class="row">
-          <div class="col-4">
-              <div class="form-check">
-                <label for="head"></label>
-                <input id="checkme" type="radio">  HOUSEHOLD HEAD
-              </div>
+      
+      </div>
+    
+      <div class="row-3">
+        <div class="space"></div>
+      <div class="row">
+        <div class="col-4">
+            <div class="form-check">
+              <label for="head"></label>
+              <input name="head" id="checkme" type="radio">  HOUSEHOLD HEAD
+            </div>
+      </div>
+      <div class="row" >
+        <div class="input-group ig3">
+          <label for="famname"></label>
+          <input name="famname" disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="Family Name ex. Tejaro-Mejada" type="input" class="form-control" aria-describedby="emailHelp">
+          
+          <label for="housenum"></label>
+          <input name="housenum" disabled="disabled" id="sendNewSms1"  name="sendNewSms" placeholder="House Number"  type="input" class="form-control" aria-describedby="emailHelp">
+          
+          <label for="famincome"></label>
+          <input name="famincome" disabled="disabled" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
         </div>
-        <div class="row" >
-          <div class="input-group ig3">
-            <label for="famname"></label>
-            <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="Family Name ex. Tejaro-Mejada" type="input" class="form-control" aria-describedby="emailHelp">
-            
-            <label for="housenum"></label>
-            <input disabled="disabled" id="sendNewSms1"  name="sendNewSms" placeholder="House Number"  type="input" class="form-control" aria-describedby="emailHelp">
-            
-            <label for="famincome"></label>
-            <input disabled="disabled" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
-          </div>
+      </div>
       <div class="row">
         
         <div class="d-grid gap-2 col-6 mx-auto">

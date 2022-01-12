@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         //this is just a sample
 
-        dd($request->input('gender'));
+        dd($request->input('prooftype'));
 
         $validator = Validator::make($request->all(),[
             // user_id is automatically generated
