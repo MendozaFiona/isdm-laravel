@@ -70,7 +70,8 @@
     </div>
   </div>
     <form method="POST" class="{{ route('reg-resident') }}">
-    <!-- FORM START -->
+      @csrf
+      <!-- FORM START -->
       <div class="container-4">
         <div class="row">
           <div class="row-3">
@@ -81,53 +82,53 @@
           </div>
           <div class="col">
             <label for="name"></label>
-            <input placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
+            <input name="name" placeholder="Name" type="name" class="form-control"  aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="password"></label>
-            <input placeholder='Password' type="password" class="form-control" id="password" aria-describedby="emailHelp">
+            <input name="password" placeholder='Password' type="password" class="form-control" id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="confirm"></label>
-            <input placeholder="Confirm password" type="password" class="form-control" id="cpassword" aria-describedby="emailHelp">
+            <input name="confirm" placeholder="Confirm password" type="password" class="form-control" id="cpassword" aria-describedby="emailHelp">
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="address"></label>
-            <input placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="email" aria-describedby="emailHelp">
+            <input name="address" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="addrs" aria-describedby="emailHelp">
           </div>
         </div> 
         <div class="row">
           <div class="col">
             <label for="email"></label>
-            <input placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input name="email" placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="number"></label>
-            <input placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
+            <input name="number" placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="birthdate"></label>
-            <input placeholder="Birthdate (mm/dd/yy)"  type="birthdate" class="form-control" id="birthdate" aria-describedby="emailHelp">
+            <input name="birthdate" placeholder="Birthdate (mm/dd/yy)"  type="birthdate" class="form-control" id="birthdate" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <!--removed form here-->
             <label for="gender">Gender</label>
-            <select name="gender" id="lang">
-              <option value="f">Female</option>
-              <option value="m">Male</option>
-              <option value="n">Non-binary</option>
-              <option value="x">Prefer not to say</option>
+            <select name="gender">
+              <option>Female</option>
+              <option>Male</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
             </select>
           </div>
 
           <div class="col">
             <label for="status">Status</label>
-            <select name="languages" id="lang">
-              <option value="single">Single</option>
-              <option value="married">Married</option>
-              <option value="widow">Widow</option>
+            <select name="status">
+              <option>Single</option>
+              <option>Married</option>
+              <option>Widow</option>
             </select>
         </div>
             
@@ -144,16 +145,16 @@
         </div>
         <div>
           <!-- maybe change this to type? -->
-          <label for="student"><input type="radio" id="radio_1" name="colorRadio" value="s"> Student</label>
-          <label for="unemployed"><input type="radio" name="colorRadio" value="u"> Unemployed</label>
-          <label for="employed"><input type="radio" name="colorRadio" value="e"> Employed</label>
-          <label for="selfemployed"><input type="radio" name="colorRadio" value="se"> Self-employed</label>
+          <label for="student"><input name="student" type="radio" id="radio_1">Student</label>
+          <label for="unemployed"><input name="unemployed" type="radio">Unemployed</label>
+          <label for="employed"><input name="employed" type="radio">Employed</label>
+          <label for="self-employed"><input name="self-employed" type="radio">Self-employed</label>
       </div>
       <!-- IF STUDENT DISPLAY -->
       <div class="s box">
         <div class="input-group">
               <label for="occname"></label>
-              <select name="languages" id="lang">
+              <select name="occupation_name">
                 <option value="javascript">-- education Stage --</option>
                 <option value="javascript">Elementary</option>
                 <option value="php">High School</option>
@@ -161,73 +162,73 @@
                 <option value="golang">TESDA</option>
               </select>
           <label for="company"></label>
-          <input placeholder="Scholarship Name"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Scholarship Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="idnum"></label>
-          <input placeholder="ID Number"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="ID Number"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF UNEMPLOYED -->
       <div class="u box">
         <div class="input-group">
           <label for="occname"></label>
-          <select name="languages" id="lang">
+          <select name="languages">
             <option value="javascript">PWD</option>
             <option value="php">Senior</option>
             <option value="java">None</option>
           </select>
           
-          <input placeholder="Upload ID according to the selection:"  type="name" class="form-control" id="name" aria-describedby="emailHelp" disabled/>
+          <input placeholder="Upload ID according to the selection:"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <div class="e box">
         <div class="input-group">
           <label for="occname1"></label>
-          <input placeholder="Occupation #1"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Occupation #1"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company1"></label>
-          <input placeholder="Company Name"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic1"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
         <div class="input-group">
           <label for="occname2"></label>
-          <input placeholder="Occupation #2"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Occupation #2"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company2"></label>
-          <input placeholder="Company Name"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic2"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
         <div class="input-group">
           <label for="occname3"></label>
-          <input placeholder="Occupation #3"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Occupation #3"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="company3"></label>
-          <input placeholder="Company Name"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
           <label for="pic3"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF SELF-EMPLOYED -->
       <div class="se box">
         <div class="input-group">
           <label for="company"></label>
-          <input placeholder="Business name"  type="name" class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input placeholder="Business name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
           
-          <input placeholder="Upload business permit (optional):"  type="name" class="form-control" id="name" aria-describedby="emailHelp" disabled/>
+          <input placeholder="Upload business permit (optional):"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       
@@ -267,7 +268,7 @@
         <div class="col">
           <div class="input-group ig2">
             <label for="proofpic"></label>
-            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
         </div>
         <div class="row-3">

@@ -49,7 +49,7 @@
                 <button class='button'type="submit" >submit</button>
               </form>
             
-              <a href="{{ route('register') }}"> <!--prev "useregister.html" -->
+              <a href="{{ route('reg-form') }}"> <!--prev "useregister.html" -->
                 <button class='button'type="register">register</button>
               </a>
             

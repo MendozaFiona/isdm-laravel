@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use App\Models\Resident; // yet to be added
+//use App\Models\Resident; // yet to be added
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function add_resident()
+    public function add_resident(Request $request)
     {
         //this is just a sample
+
+        dd($request->input('gender'));
 
         $validator = Validator::make($request->all(),[
             // user_id is automatically generated

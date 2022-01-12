@@ -12,4 +12,9 @@ class ResidentPagesController extends Controller
         return view('user/profile'); 
     }
 
+    public function reg_view()
+    {
+        return view('user/useregister'); 
+    }
+
 }
