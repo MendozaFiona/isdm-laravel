@@ -25,3 +25,5 @@ Route::get('/grants', [App\Http\Controllers\AdminPagesController::class, 'grants
 Route::get('/news', [App\Http\Controllers\AdminPagesController::class, 'news'])->name('news');
 Route::get('/pending', [App\Http\Controllers\AdminPagesController::class, 'pending'])->name('pending');
 Route::get('/viewmore', [App\Http\Controllers\AdminPagesController::class, 'viewmore'])->name('viewmore');
+
+Route::post('/reg-resident', [App\Http\Controllers\AdminPagesController::class, 'add_resident'])->name('reg-resident');
