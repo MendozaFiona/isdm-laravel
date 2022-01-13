@@ -13,6 +13,7 @@
     <title>Brgy. Nazareth Residential System</title>
   </head>
   <body>
+  
   <div class="container">
     <div class="row">
       <div class="col">

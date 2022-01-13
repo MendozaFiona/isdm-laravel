@@ -95,9 +95,10 @@ class UserController extends Controller
 
         $resident = new Resident;
 
-        $famid = Family::select('id')->where('family_name', $famname)->first();
+        $famid = Family::where('family_name', $famname)->value('id');
+        $resname = $request->input('name');
 
-        $resident->name = $request->input('name');
+        $resident->name = $resname;
         $resident->birthdate = $request->input('birthdate');
         $resident->sex = $request->input('sex');
         $resident->contact = $request->input('number');
@@ -110,18 +111,15 @@ class UserController extends Controller
         
         $user = new User;
 
-        /*$offices_array = Office::officesArray();
-        $office_name =  $offices_array[$request->input('name')];
+        $resid = Resident::where('name', $resname)->value('id');
 
-        $office_id = Office::select('id')->where('name', $office_name)->first();
-        
-        $user->username = $request->input('username');
+        $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->office_id = $office_id->id;
-        $user->role_id = 2;
+        $user->role_id = '2';
+        $user->resident_id = $resid;
 
         $user->save();
 
-        return Redirect::back()->with('success', 'Office Registration Successful');*/
+        return redirect('/')->with('message', 'Registration Successful');
     }
 }
