@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -18,19 +19,23 @@ class UserController extends Controller
     {
         //this is just a sample
 
-        dd($request->input('prooftype'));
-
         $validator = Validator::make($request->all(),[
             // user_id is automatically generated
             'name' => 'required',
-            'username' => 'required|min:4|max:15|unique:users,username',
             'password' => 'required|min:8',
             'confirm' => 'required_with:password|same:password', 
+            'address' => 'required',
+            'email' => 'required|unique:user,email',
+            'number' => 'required|min:11|max:11|starts_with:09',
+            'birthdate' => 'required|date_format:Y/m/d',
+            //'famname' => 'required|exists:family,family_name',
         ]);
 
         if($validator->fails()) {
             return Redirect::back()->withErrors($validator);
         }
+
+        dd("success");
         
         $user = new User;
 

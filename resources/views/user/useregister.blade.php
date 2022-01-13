@@ -69,6 +69,7 @@
       <h5>BARANGAY NAZARETH RESIDENTIAL INFORMATION SYSTEM</h5>
     </div>
   </div>
+  @include('inc.messages')
     <form method="POST" class="{{ route('reg-resident') }}">
       @csrf
       <!-- FORM START -->
@@ -82,35 +83,47 @@
           </div>
           <div class="col">
             <label for="name"></label>
-            <input name="name" placeholder="Name" type="name" class="form-control"  aria-describedby="emailHelp">
+            <input name="name" placeholder="Name" type="name" class="form-control" required  aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="password"></label>
-            <input name="password" placeholder='Password' type="password" class="form-control" id="password" aria-describedby="emailHelp">
+            <input name="password" placeholder='Password' type="password" minlength="8" class="form-control" required id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="confirm"></label>
-            <input name="confirm" placeholder="Confirm password" type="password" class="form-control" id="cpassword" aria-describedby="emailHelp">
+            <input name="confirm" placeholder="Confirm password" type="password" class="form-control" required id="cpassword" aria-describedby="emailHelp" oninput="check(this)">
+            
+            <script language='javascript' type='text/javascript'>
+              function check(input) {
+                  if (input.value != document.getElementById('password').value) {
+                      input.setCustomValidity('Password Must be Matching.');
+                  } else {
+                      // input is valid -- reset the error message
+                      input.setCustomValidity('');
+                  }
+              }
+            </script>
+          
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="address"></label>
-            <input name="address" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="addrs" aria-describedby="emailHelp">
+            <input name="address" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" required id="addrs" aria-describedby="emailHelp">
           </div>
         </div> 
         <div class="row">
           <div class="col">
             <label for="email"></label>
-            <input name="email" placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input name="email" placeholder="Email" type="email" class="form-control" required id="email" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="number"></label>
-            <input name="number" placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
+            <input name="number" placeholder="Phone number" minlength="11" type="tel" pattern="[0]{1}[9]{1}[0-9]{9}" class="form-control" required id="phone" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="birthdate"></label>
-            <input name="birthdate" placeholder="Birthdate (mm/dd/yy)"  type="birthdate" class="form-control" id="birthdate" aria-describedby="emailHelp">
+            <input name="birthdate" placeholder="Birthdate (mm/dd/yyyy)"  type="date" class="form-control" required id="birthdate" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <!--removed form here-->
@@ -131,6 +144,13 @@
               <option>Widow</option>
             </select>
         </div>
+
+        <div class="row">
+          <div class="col-4">
+            <label for="famname"></label>
+            <input name="famname" placeholder="Family Name ex. Tejaro-Mejada" type="text" class="form-control" required aria-describedby="emailHelp">
+          </div>
+        </div>
             
         
         <div class="space"></div>
@@ -145,7 +165,7 @@
         </div>
         <div>
           <!-- maybe change this to type?-->
-          <label for="student"><input name="type" id="radio_1" type="radio" value="Student">Student</label>
+          <label for="student"><input name="type" id="radio_1" type="radio" required value="Student">Student</label>
           <label for="unemployed"><input name="type" type="radio" value="Unemployed">Unemployed</label>
           <label for="employed"><input name="type" type="radio" value="Employed">Employed</label>
           <label for="self-employed"><input name="type" type="radio" value="Self-employed">Self-employed</label>
@@ -156,17 +176,16 @@
         <div class="input-group">
               <label for="occname"></label>
               <select name="occupation_name">
-                <option>-- Education Stage --</option>
                 <option>Elementary</option>
                 <option>High School</option>
                 <option>College</option>
                 <option>TESDA</option>
               </select>
           <label for="company"></label>
-          <input name="company" placeholder="Scholarship Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company" placeholder="Scholarship Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="id_num"></label>
-          <input name="id_num" placeholder="ID Number"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="id_num" placeholder="ID Number"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="pic"></label>
           <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -182,7 +201,7 @@
             <option>None</option>
           </select>
           
-          <input placeholder="Upload ID according to the selection:"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
+          <input placeholder="Upload ID according to the selection:"  type="name" class="form-control" aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
           <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -191,10 +210,10 @@
       <div class="Employed box">
         <div class="input-group">
           <label for="occname1"></label>
-          <input name="occupation_name1" placeholder="Occupation #1"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="occupation_name1" placeholder="Occupation #1"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="company1"></label>
-          <input name="company1" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company1" placeholder="Company Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="pic1"></label>
           <input name="pic1" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -224,9 +243,9 @@
       <div class="Self-employed box">
         <div class="input-group">
           <label for="company"></label>
-          <input name="company" placeholder="Business name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
+          <input name="company" placeholder="Business name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
-          <input placeholder="Upload business permit (optional):"  type="name" class="form-control"  aria-describedby="emailHelp" disabled/>
+          <input placeholder="Upload business permit (optional):"  type="name" class="form-control" aria-describedby="emailHelp" disabled/>
           
           <label for="pic"></label>
           <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -264,7 +283,7 @@
         <div class="col-4">
           <div class="input-group">
             <label for="proofpic"></label>
-            <input name="proofpic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <input name="proofpic" type="file" class="form-control" required aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
         </div>
       
