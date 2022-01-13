@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Family;
 //use App\Models\Resident; // yet to be added
 
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,8 @@ class UserController extends Controller
             'email' => 'required|unique:user,email',
             'number' => 'required|min:11|max:11|starts_with:09',
             'birthdate' => 'required|date_format:Y-m-d',
-            //'famname' => 'required|exists:family,family_name',
+            'famname' => 'required|exists:family,family_name',
+            
         ]);
 
         if($validator->fails()) {
