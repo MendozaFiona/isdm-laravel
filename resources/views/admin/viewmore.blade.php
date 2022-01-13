@@ -39,7 +39,7 @@
             <input placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input placeholder='Gender' type="gender" class="form-control" id="password" aria-describedby="emailHelp">
+            <input placeholder='Sex' type="sex" class="form-control" id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <input placeholder="Status" type="status" class="form-control" id="cpassword" aria-describedby="emailHelp">

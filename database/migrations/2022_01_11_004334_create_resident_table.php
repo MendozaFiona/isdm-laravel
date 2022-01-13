@@ -19,8 +19,7 @@ class CreateResidentTable extends Migration
             $table->string('birthdate');
             $table->string('sex');
             $table->string('contact');
-            $table->string('occupation');
-            $table->string('income');
+            $table->string('occupation'); //occ_type
             $table->string('status');
             $table->string('family_role');
             $table->integer('family_id')->references('family_id')->on('family');

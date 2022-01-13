@@ -15,6 +15,7 @@ class CreateFamilyTable extends Migration
     {
         Schema::create('family', function (Blueprint $table) {
             $table->id('id');
+            $table->string('family_name');
             $table->string('head_name');
             $table->string('head_phone');
             $table->string('family_income');

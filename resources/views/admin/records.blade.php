@@ -36,7 +36,7 @@
                   <tr>
                     <th scope="col">Street#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
+                    <th scope="col">Sex</th>
                     <th scope="col">Birthdate</th>
                     <th scope="col">Occupation</th>
                     <th scope="col">Status</th>

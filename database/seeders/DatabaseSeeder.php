@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         // is this monthly or annual income
         DB::table('family')->insert(array(
             array(
+                'family_name' => 'Fajardo-Timares',
                 'head_name' => 'John Ryle F. Timares',
                 'head_phone' => '09287364517',
                 'family_income' => '100000',
@@ -45,8 +46,7 @@ class DatabaseSeeder extends Seeder
                 'birthdate' => '10/01/1986',
                 'sex' => 'Male',
                 'contact' => '09287364517',
-                'occupation' => 'Government Employee',
-                'income' => '50000',
+                'occupation' => 'Employed',
                 'status' => 'Married',
                 'family_role' => 'Head',
                 'family_id' => '1',

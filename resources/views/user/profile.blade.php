@@ -123,13 +123,10 @@
           </div>
           <div class="col">
             <form action="#">
-              <select name="gender" id="lang">
-                <option value="xx">-- Gender --</option>
-                <option value="f">Female</option>
-                <option value="m">Male</option>
-                <option value="t">Transgender</option>
-                <option value="l">Lesbian</option>
-                <option value="x">Preffered not to say</option>
+              <select name="sex" id="lang">
+                <option>-- Sex --</option>
+                <option>Female</option>
+                <option>Male</option>
               </select>
         </form>
           </div>

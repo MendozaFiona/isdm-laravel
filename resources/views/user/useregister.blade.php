@@ -127,12 +127,10 @@
           </div>
           <div class="col">
             <!--removed form here-->
-            <label for="gender">Gender</label>
-            <select name="gender">
+            <label for="sex">Sex</label>
+            <select name="sex">
               <option>Female</option>
               <option>Male</option>
-              <option>Non-binary</option>
-              <option>Prefer not to say</option>
             </select>
           </div>
 
