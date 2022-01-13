@@ -19,6 +19,77 @@
               var targetBox = $("." + inputValue);
               $(".box").not(targetBox).hide();
               $(targetBox).show();
+
+              var sname = document.getElementById("company_s");
+              var sid = document.getElementById("id_num");
+              var spic = document.getElementById("pic_s");
+
+              if(inputValue == 'Student'){
+                sname.required = true;
+                sid.required = true;
+                spic.required = true;
+
+                sname.disabled = false;
+                sid.disabled = false;
+                spic.disabled = false;
+              } else{
+                sname.required = false;
+                sid.required = false;
+                spic.required = false;
+
+                sname.disabled = true;
+                sid.disabled = true;
+                spic.disabled = true;
+              }
+
+              var upic = document.getElementById("pic_u");
+
+              if(inputValue == 'Unemployed'){
+                upic.required = true;
+                upic.disabled = false;
+              } else{
+                upic.required = false;
+                upic.disabled = true;
+              }
+
+              var ename = document.getElementById("occupation_name1");
+              var ecomp = document.getElementById("company1");
+              var epic = document.getElementById("pic1");
+
+              if(inputValue == 'Employed'){
+                ename.required = true;
+                ecomp.required = true;
+                epic.required = true;
+
+                ename.disabled = false;
+                ecomp.disabled = false;
+                epic.disabled = false;
+              } else{
+                ename.required = false;
+                ecomp.required = false;
+                epic.required = false;
+
+                ename.disabled = true;
+                ecomp.disabled = true;
+                epic.disabled = true;
+              }
+
+              var secomp = document.getElementById("company_se");
+              var sepic = document.getElementById("pic_se");
+
+              if(inputValue == 'Self-employed'){
+                secomp.required = true;
+                sepic.required = true;
+
+                secomp.disabled = false;
+                sepic.disabled = false;
+              } else{
+                secomp.required = false;
+                sepic.required = false;
+
+                secomp.disabled = true;
+                sepic.disabled = true;
+              }
           });
       });
               
@@ -35,19 +106,29 @@
     });
     $(document).ready(function(){
       var checker = document.getElementById('checkme');
-      var sendbtn = document.getElementById('sendNewSms');
-      var sendbtn1 = document.getElementById('sendNewSms1');
-      var sendbtn2 = document.getElementById('sendNewSms2');
+      var sendbtn = document.getElementById('head');
+      var sendbtn2 = document.getElementById('head2');
+      var fam = document.getElementById('famname');
       // when unchecked or checked, run the function
           checker.onchange = function(){
           if(this.checked){
               sendbtn.disabled = false;
-              sendbtn1.disabled = false;
+              sendbtn.required = true;
+
               sendbtn2.disabled = false;
+              sendbtn2.required = true;
+
+              fam.disabled = true;
+              fam.required = false;
           } else {
               sendbtn.disabled = true;
-              sendbtn1.disabled = true;
+              sendbtn.required = false;
+
               sendbtn2.disabled = true;
+              sendbtn2.required = false;
+
+              fam.disabled = false;
+              fam.required = true;
           }
 
           }
@@ -70,7 +151,7 @@
     </div>
   </div>
   @include('inc.messages')
-    <form method="POST" class="{{ route('reg-resident') }}">
+    <form method="POST" class="{{ route('reg-resident') }}" enctype="multipart/form-data">
       @csrf
       <!-- FORM START -->
       <div class="container-4">
@@ -145,8 +226,8 @@
 
         <div class="row">
           <div class="col-4">
-            <label for="famname"></label>
-            <input value="{{ old('famname') }}" name="famname" placeholder="Family Name ex. Tejaro-Mejada" type="text" class="form-control" required aria-describedby="emailHelp">
+            <label for="family_name"></label>
+            <input id="famname" value="{{ old('family name') }}" name="family_name" placeholder="Family Name ex. Tejaro-Mejada" type="text" class="form-control" required aria-describedby="emailHelp">
           </div>
         </div>
             
@@ -163,7 +244,7 @@
         </div>
         <div>
           <!-- maybe change this to type?-->
-          <label for="student"><input name="type" value="{{ old('type') }}" id="radio_1" type="radio" required value="Student">Student</label>
+          <label for="student"><input name="type" type="radio" required value="Student">Student</label>
           <label for="unemployed"><input name="type" type="radio" value="Unemployed">Unemployed</label>
           <label for="employed"><input name="type" type="radio" value="Employed">Employed</label>
           <label for="self-employed"><input name="type" type="radio" value="Self-employed">Self-employed</label>
@@ -172,27 +253,27 @@
       <!-- IF STUDENT DISPLAY -->
       <div class="Student box">
         <div class="input-group">
-              <label for="occname"></label>
+              <label for="occupation_name_s"></label>
               <select name="occupation_name_s">
                 <option>Elementary</option>
                 <option>High School</option>
                 <option>College</option>
                 <option>TESDA</option>
               </select>
-          <label for="company"></label>
-          <input name="company" placeholder="Scholarship Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
+          <label for="company_s"></label>
+          <input id="company_s" name="company_s" placeholder="Scholarship Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="id_num"></label>
-          <input name="id_num" placeholder="ID Number"  type="name" class="form-control" aria-describedby="emailHelp"/>
+          <input id="id_num" name="id_num" placeholder="ID Number"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
-          <label for="pic"></label>
-          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <label for="pic_s"></label>
+          <input id="pic_s" accept="image/png, image/jpeg" name="pic_s" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF UNEMPLOYED -->
       <div class="Unemployed box">
         <div class="input-group">
-          <label for="occname"></label>
+          <label for="occupation_name_u"></label>
           <select name="occupation_name_u">
             <option>PWD</option>
             <option>Senior</option>
@@ -201,52 +282,32 @@
           
           <input placeholder="Upload ID according to the selection:"  type="name" class="form-control" aria-describedby="emailHelp" disabled/>
           
-          <label for="pic"></label>
-          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <label for="pic_u"></label>
+          <input id="pic_u" accept="image/png, image/jpeg" name="pic_u" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <div class="Employed box">
         <div class="input-group">
-          <label for="occname1"></label>
-          <input name="occupation_name1" placeholder="Occupation #1"  type="name" class="form-control" aria-describedby="emailHelp"/>
+          <label for="occupation_name1"></label>
+          <input id="occupation_name1" name="occupation_name1" placeholder="Occupation Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="company1"></label>
-          <input name="company1" placeholder="Company Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
+          <input id="company1" name="company1" placeholder="Company Name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <label for="pic1"></label>
-          <input name="pic1" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-        </div>
-        <div class="input-group">
-          <label for="occname2"></label>
-          <input name="occupation_name2" placeholder="Occupation #2"  type="name" class="form-control"  aria-describedby="emailHelp"/>
-          
-          <label for="company2"></label>
-          <input name="company2" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
-          
-          <label for="pic2"></label>
-          <input name="pic2" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-        </div>
-        <div class="input-group">
-          <label for="occname3"></label>
-          <input name="occupation_name3" placeholder="Occupation #3"  type="name" class="form-control"  aria-describedby="emailHelp"/>
-          
-          <label for="company3"></label>
-          <input name="company3" placeholder="Company Name"  type="name" class="form-control"  aria-describedby="emailHelp"/>
-          
-          <label for="pic3"></label>
-          <input name="pic3" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input id="pic1" accept="image/png, image/jpeg" name="pic1" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       <!-- IF SELF-EMPLOYED -->
       <div class="Self-employed box">
         <div class="input-group">
-          <label for="company"></label>
-          <input name="company" placeholder="Business name"  type="name" class="form-control" aria-describedby="emailHelp"/>
+          <label for="company_se"></label>
+          <input id="company_se" name="company_se" placeholder="Business name"  type="name" class="form-control" aria-describedby="emailHelp"/>
           
           <input placeholder="Upload business permit (optional):"  type="name" class="form-control" aria-describedby="emailHelp" disabled/>
           
-          <label for="pic"></label>
-          <input name="pic" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <label for="pic_se"></label>
+          <input id="pic_se" accept="image/png, image/jpeg" name="pic_se" type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
       </div>
       
@@ -294,7 +355,7 @@
         <div class="col-4">
           <div class="input-group">
             <label for="proofpic"></label>
-            <input value="{{ old('proofpic') }}" name="proofpic" type="file" class="form-control" required aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <input value="{{ old('proofpic') }}" name="proofpic" accept="image/png, image/jpeg" type="file" class="form-control" required aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
         </div>
       
@@ -306,19 +367,16 @@
         <div class="col-4">
             <div class="form-check">
               <label for="head"></label>
-              <input name="head" id="checkme" type="radio">  HOUSEHOLD HEAD
+              <input name="head" id="checkme" type="checkbox">  HOUSEHOLD HEAD
             </div>
       </div>
       <div class="row" >
-        <div class="input-group ig3">
-          <label for="famname"></label>
-          <input name="famname" disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="Family Name ex. Tejaro-Mejada" type="input" class="form-control" aria-describedby="emailHelp">
-          
-          <label for="housenum"></label>
-          <input name="housenum" disabled="disabled" id="sendNewSms1"  name="sendNewSms" placeholder="House Number"  type="input" class="form-control" aria-describedby="emailHelp">
-          
+        <div class="input-group ig3">          
+          <label for="family_name2"></label>
+          <input name="family_name2" disabled="disabled" id="head2" placeholder="Family Name ex. Tejaro-Mejada" type="input" class="form-control" aria-describedby="emailHelp">
+      
           <label for="famincome"></label>
-          <input name="famincome" disabled="disabled" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
+          <input name="famincome" disabled="disabled" id="head" placeholder="Family Income" type="number" class="form-control" aria-describedby="emailHelp">
         </div>
       </div>
       <div class="row">

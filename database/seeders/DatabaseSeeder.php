@@ -39,6 +39,15 @@ class DatabaseSeeder extends Seeder
                 'family_income' => '100000',
             ),
         ));
+
+        DB::table('family')->insert(array(
+            array(
+                'family_name' => 'Paderes-Mendoza',
+                'head_name' => 'Joel Julieto N. Mendoza',
+                'head_phone' => '09246758321',
+                'family_income' => '80000',
+            ),
+        ));
             
         DB::table('resident')->insert(array(
             array(
@@ -50,7 +59,6 @@ class DatabaseSeeder extends Seeder
                 'status' => 'Married',
                 'family_role' => 'Head',
                 'family_id' => '1',
-                'street_id' => '1',
             ),
         ));
             

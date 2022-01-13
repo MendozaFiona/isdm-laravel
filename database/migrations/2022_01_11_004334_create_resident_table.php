@@ -23,7 +23,7 @@ class CreateResidentTable extends Migration
             $table->string('status');
             $table->string('family_role');
             $table->integer('family_id')->references('family_id')->on('family');
-            $table->integer('street_id')->references('street_id')->on('street');
+            //$table->integer('street_id')->references('street_id')->on('street');
         });
     }
 
