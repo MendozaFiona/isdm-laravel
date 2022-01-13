@@ -80,6 +80,18 @@ class DatabaseSeeder extends Seeder
                 'admin_id' => '1',
             ),
         ));
+
+        //idk what to put in picture
+
+        /*DB::table('occupation')->insert(array(
+            array(
+                'type' => 'Employed',
+                'occupation_name' => 'Government Employee', // still not sure about this
+                'company_name' => 'CHED',
+                'pic' => '',
+                'resident_id' => '1',
+            ),
+        ));*/
             
     }
 }

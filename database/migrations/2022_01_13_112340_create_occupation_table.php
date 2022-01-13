@@ -15,7 +15,7 @@ class CreateOccupationTable extends Migration
     {
         Schema::create('occupation', function (Blueprint $table) {
             $table->id('id');
-            $table->string('occupation_type');
+            $table->string('type');
             $table->string('occupation_name')->nullable();
             $table->string('company_name')->nullable();
             $table->string('id_num')->nullable();

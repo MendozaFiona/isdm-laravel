@@ -83,15 +83,15 @@
           </div>
           <div class="col">
             <label for="name"></label>
-            <input name="name" placeholder="Name" type="name" class="form-control" required  aria-describedby="emailHelp">
+            <input value="{{ old('name') }}" name="name" placeholder="Name" type="name" class="form-control" required  aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="password"></label>
-            <input name="password" placeholder='Password' type="password" minlength="8" class="form-control" required id="password" aria-describedby="emailHelp">
+            <input value="{{ old('password') }}" name="password" placeholder='Password' type="password" minlength="8" class="form-control" required id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="confirm"></label>
-            <input name="confirm" placeholder="Confirm password" type="password" class="form-control" required id="cpassword" aria-describedby="emailHelp" oninput="check(this)">
+            <input value="{{ old('confirm') }}" name="confirm" placeholder="Confirm password" type="password" class="form-control" required id="cpassword" aria-describedby="emailHelp" oninput="check(this)">
             
             <script language='javascript' type='text/javascript'>
               function check(input) {
@@ -109,44 +109,44 @@
         <div class="row">
           <div class="col">
             <label for="address"></label>
-            <input name="address" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" required id="addrs" aria-describedby="emailHelp">
+            <input value="{{ old('address') }}" name="address" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" required id="addrs" aria-describedby="emailHelp">
           </div>
         </div> 
         <div class="row">
           <div class="col">
             <label for="email"></label>
-            <input name="email" placeholder="Email" type="email" class="form-control" required id="email" aria-describedby="emailHelp">
+            <input value="{{ old('email') }}" name="email" placeholder="Email" type="email" class="form-control" required id="email" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="number"></label>
-            <input name="number" placeholder="Phone number" minlength="11" type="tel" pattern="[0]{1}[9]{1}[0-9]{9}" class="form-control" required id="phone" aria-describedby="emailHelp">
+            <input value="{{ old('number') }}" name="number" placeholder="Phone number" minlength="11" type="tel" pattern="[0]{1}[9]{1}[0-9]{9}" class="form-control" required id="phone" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <label for="birthdate"></label>
-            <input name="birthdate" placeholder="Birthdate (mm/dd/yyyy)"  type="date" class="form-control" required id="birthdate" aria-describedby="emailHelp">
+            <input value="{{ old('birthdate') }}" name="birthdate" placeholder="Birthdate (mm/dd/yyyy)"  type="date" class="form-control" required id="birthdate" aria-describedby="emailHelp">
           </div>
           <div class="col">
             <!--removed form here-->
             <label for="sex">Sex</label>
             <select name="sex">
-              <option>Female</option>
-              <option>Male</option>
+              <option @if(old('sex') == 'Female') selected @endif>Female</option>
+              <option @if(old('sex') == 'Male') selected @endif>Male</option>
             </select>
           </div>
 
           <div class="col">
             <label for="status">Status</label>
             <select name="status">
-              <option>Single</option>
-              <option>Married</option>
-              <option>Widow</option>
+              <option @if(old('status') == 'Single') selected @endif>Single</option>
+              <option @if(old('status') == 'Married') selected @endif>Married</option>
+              <option @if(old('status') == 'Widow') selected @endif>Widow</option>
             </select>
         </div>
 
         <div class="row">
           <div class="col-4">
             <label for="famname"></label>
-            <input name="famname" placeholder="Family Name ex. Tejaro-Mejada" type="text" class="form-control" required aria-describedby="emailHelp">
+            <input value="{{ old('famname') }}" name="famname" placeholder="Family Name ex. Tejaro-Mejada" type="text" class="form-control" required aria-describedby="emailHelp">
           </div>
         </div>
             
@@ -163,7 +163,7 @@
         </div>
         <div>
           <!-- maybe change this to type?-->
-          <label for="student"><input name="type" id="radio_1" type="radio" required value="Student">Student</label>
+          <label for="student"><input name="type" value="{{ old('type') }}" id="radio_1" type="radio" required value="Student">Student</label>
           <label for="unemployed"><input name="type" type="radio" value="Unemployed">Unemployed</label>
           <label for="employed"><input name="type" type="radio" value="Employed">Employed</label>
           <label for="self-employed"><input name="type" type="radio" value="Self-employed">Self-employed</label>
@@ -173,7 +173,7 @@
       <div class="Student box">
         <div class="input-group">
               <label for="occname"></label>
-              <select name="occupation_name">
+              <select name="occupation_name_s">
                 <option>Elementary</option>
                 <option>High School</option>
                 <option>College</option>
@@ -193,7 +193,7 @@
       <div class="Unemployed box">
         <div class="input-group">
           <label for="occname"></label>
-          <select name="occupation_name">
+          <select name="occupation_name_u">
             <option>PWD</option>
             <option>Senior</option>
             <option>None</option>
@@ -260,19 +260,32 @@
           
           <label for="prooftype">Select any valid proof of residence</label>
           <select name="prooftype">
-            <option>UMID</option>
-            <option>Driver License</option>
-            <option>Barangay Certificate</option>
-            <option>Police ID/Clearance</option>
-            <option>Water Bill</option>
-            <option>Electricity Bill</option>
-            <option>Landline Phone Bill</option>
-            <option>Postpaid Line Bill</option>
-            <option>Internet Bill</option>
-            <option>Bank Statement with Address</option>
-            <option>Credit Card Statement Account (SoA)</option>
-            <option>National of Investigation (NBI clearance)</option>
-            <option>Lease Contract</option>
+            <option @if(old('prooftype') == 'UMID') selected @endif>
+              UMID</option>
+            <option @if(old('prooftype') == 'Driver License') selected @endif>
+              Driver License</option>
+            <option @if(old('prooftype') == 'Barangay Certificate') selected @endif>
+              Barangay Certificate</option>
+            <option @if(old('prooftype') == 'Police ID/Clearance') selected @endif>
+              Police ID/Clearance</option>
+            <option @if(old('prooftype') == 'Water Bill') selected @endif>
+              Water Bill</option>
+            <option @if(old('prooftype') == 'Electricity Bill') selected @endif>
+              Electricity Bill</option>
+            <option @if(old('prooftype') == 'Landline Phone Bill') selected @endif>
+              Landline Phone Bill</option>
+            <option @if(old('prooftype') == 'Postpaid Line Bill') selected @endif>
+              Postpaid Line Bill</option>
+            <option @if(old('prooftype') == 'Internet Bill') selected @endif>
+              Internet Bill</option>
+            <option @if(old('prooftype') == 'Bank Statement with Address') selected @endif>
+              Bank Statement with Address</option>
+            <option @if(old('prooftype') == 'Credit Card Statement Account (SoA)') selected @endif>
+              Credit Card Statement Account (SoA)</option>
+            <option @if(old('prooftype') == 'National of Investigation (NBI clearance)') selected @endif>
+              National of Investigation (NBI clearance)</option>
+            <option @if(old('prooftype') == 'Lease Contract') selected @endif>
+              Lease Contract</option>
           </select>
           
         </div>
@@ -281,7 +294,7 @@
         <div class="col-4">
           <div class="input-group">
             <label for="proofpic"></label>
-            <input name="proofpic" type="file" class="form-control" required aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <input value="{{ old('proofpic') }}" name="proofpic" type="file" class="form-control" required aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
         </div>
       
