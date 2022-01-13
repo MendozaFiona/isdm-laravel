@@ -27,7 +27,7 @@ class UserController extends Controller
             'address' => 'required',
             'email' => 'required|unique:user,email',
             'number' => 'required|min:11|max:11|starts_with:09',
-            'birthdate' => 'required|date_format:Y/m/d',
+            'birthdate' => 'required|date_format:Y-m-d',
             //'famname' => 'required|exists:family,family_name',
         ]);
 
