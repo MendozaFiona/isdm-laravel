@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Family;
 use App\Models\Resident;
+use App\Models\Occupation;
+use App\Models\Proof;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -42,26 +44,36 @@ class UserController extends Controller
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
+        $occupation = new Occupation;
+
         if ($request->hasFile('pic_s')) {
             $request->pic_s->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_s->hashName();
+            $occupation->pic = $request->pic_s->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_s');
+            $occupation->company_name = $request->input('company_s');
+            $occupation->id_num = $request->input('id_num');
         }
 
         if ($request->hasFile('pic_u')) {
             $request->pic_u->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_u->hashName();
+            $occupation->pic = $request->pic_u->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_u');
         }
         
         if ($request->hasFile('pic_se')) {
             $request->pic_se->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_se->hashName();
+            $occupation->pic = $request->pic_se->hashName();
+            $occupation->company_name = $request->input('company_se');
         }
 
         if ($request->hasFile('pic1')) {
             $request->pic1->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic1->hashName();
+            $occupation->pic = $request->pic1->hashName();
+            $occupation->occupation_name = $request->input('occupation_name1');
+            $occupation->company_name = $request->input('company1');
         }
-
+      
+        //proof
         if ($request->hasFile('proofpic')) {
             $request->proofpic->store('uploaded_pictures', 'public');
             $proof_pic = $request->proofpic->hashName();
@@ -114,12 +126,25 @@ class UserController extends Controller
 
         $resid = Resident::where('name', $resname)->value('id');
 
+        $occupation->type = $request->input('type');
+        $occupation->resident_id = $resid;
+        $occupation->save();
+
+        $proof = new Proof;
+        $proof->proof_type = $request->input('prooftype');
+        $proof->proof_pic = $proof_pic;
+
+        $proof->resident_id = $resid;
+        $proof->save();
+
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->role_id = '2';
         $user->resident_id = $resid;
 
         $user->save();
+
+        Auth::login($user);
 
         return redirect('/')->with('message', 'Registration Successful');
     }
@@ -155,33 +180,53 @@ class UserController extends Controller
 
         $res_id = Auth::user()->resident_id;
         
-        $user = User::find($res_id);
+        $user = User::find($user_id);
         $resident = Resident::find($res_id);
+
+        $occupation = Occupation::where('resident_id', $res_id)->first();
         
         if ($request->hasFile('pic_s')) {
             $request->pic_s->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_s->hashName();
+            $occupation->pic = $request->pic_s->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_s');
+            $occupation->company_name = $request->input('company_s');
+            $occupation->id_num = $request->input('id_num');
         }
-        //here
+
         if ($request->hasFile('pic_u')) {
             $request->pic_u->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_u->hashName();
+            $occupation->pic = $request->pic_u->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_u');
         }
         
         if ($request->hasFile('pic_se')) {
             $request->pic_se->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic_se->hashName();
+            $occupation->pic = $request->pic_se->hashName();
+            $occupation->company_name = $request->input('company_se');
         }
 
         if ($request->hasFile('pic1')) {
             $request->pic1->store('uploaded_pictures', 'public');
-            $occupation_pic = $request->pic1->hashName();
+            $occupation->pic = $request->pic1->hashName();
+            $occupation->occupation_name = $request->input('occupation_name1');
+            $occupation->company_name = $request->input('company1');
         }
 
         if ($request->hasFile('proofpic')) {
             $request->proofpic->store('uploaded_pictures', 'public');
             $proof_pic = $request->proofpic->hashName();
         }
+
+        $occupation->type = $request->input('type');
+        $occupation->resident_id = $res_id;
+        $occupation->save();
+
+        $proof = Proof::where('resident_id', $res_id)->first();
+        $proof->proof_type = $request->input('prooftype');
+        $proof->proof_pic = $proof_pic;
+
+        $proof->resident_id = $res_id;
+        $proof->save();
 
         if($request->input('head') == 'on'){
             $old_famname = Family::where('id', $resident->family_id)->value('family_name');

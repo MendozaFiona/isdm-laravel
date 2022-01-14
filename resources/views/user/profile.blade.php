@@ -31,6 +31,8 @@
       $occupation = Occupation::where('resident_id', $resident_id)->first();
 
       $occ_type = $resident->occupation;
+
+      //if($occ_type != )
       $occ_name = $occupation->occupation_name;
       $occ_comp = $occupation->company_name;
       $occ_idnum = $occupation->id_num;
@@ -500,6 +502,11 @@
             }
           }
         </script> -->
+        @if(session()->has('message'))
+            <script>
+                alert('{{ session()->get('message') }}. Please wait for request verification. A message will be sent upon approval. Thank you!');
+            </script>
+        @endif
         <div class="row">
           
           <div class="d-grid gap-2 col-6 mx-auto">
