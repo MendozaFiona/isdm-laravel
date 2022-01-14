@@ -122,4 +122,9 @@ class UserController extends Controller
 
         return redirect('/')->with('message', 'Registration Successful');
     }
+
+    public function edit_resident(Request $request)
+    {
+
+    }
 }
