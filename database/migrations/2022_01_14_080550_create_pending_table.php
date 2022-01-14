@@ -44,6 +44,8 @@ class CreatePendingTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('role_id');
+
+            $table->string('state');
         });
     }
 

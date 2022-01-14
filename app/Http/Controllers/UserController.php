@@ -138,6 +138,8 @@ class UserController extends Controller
         $pending->role_id = '2';
         //$user->resident_id = $resid;
 
+        $pending->state = 'pending';
+
         $pending->save();
 
         return Redirect::back()->with('message', 'Registration Awaiting for Verification. A message will be sent to notify approval.');
@@ -266,6 +268,8 @@ class UserController extends Controller
         $pending->email = $request->input('email');
         $pending->password = Hash::make($request->input('password'));
         $pending->role_id = '2';
+
+        $pending->state = 'pending';
 
         $pending->save();
 

@@ -38,9 +38,6 @@ class DatabaseSeeder extends Seeder
                 'head_phone' => '09287364517',
                 'family_income' => '100000',
             ),
-        ));
-
-        DB::table('family')->insert(array(
             array(
                 'family_name' => 'Paderes-Mendoza',
                 'head_name' => 'Joel Julieto N. Mendoza',
@@ -61,9 +58,6 @@ class DatabaseSeeder extends Seeder
                 'family_role' => 'Head',
                 'family_id' => '1',
             ),
-        ));
-
-        DB::table('resident')->insert(array(
             array(
                 'name' => 'Kyla Tume F. Timares',
                 'birthdate' => '12/14/1994',
@@ -83,9 +77,6 @@ class DatabaseSeeder extends Seeder
                 'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
                 'resident_id' => '1',
             ),
-        ));
-
-        DB::table('proof')->insert(array(
             array(
                 'proof_type' => 'Electricity Bill',
                 'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
@@ -109,9 +100,6 @@ class DatabaseSeeder extends Seeder
                 'role_id' => '2',
                 'resident_id' => '1',
             ),
-        ));
-
-        DB::table('user')->insert(array(
             array(
                 'email' => 'kytum@gmail.com',
                 'password' => Hash::make('kylapass'), // still not sure about this
@@ -128,14 +116,108 @@ class DatabaseSeeder extends Seeder
                 'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
                 'resident_id' => '1',
             ),
-        ));
-
-        DB::table('occupation')->insert(array(
             array(
                 'type' => 'Unemployed',
                 'occupation_name' => 'PWD',
+                'company_name' => null,
                 'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
                 'resident_id' => '2',
+            ),
+        ));
+
+        DB::table('pending')->insert(array(
+            array(
+                'name' => 'Kyla Tume F. Timares',
+                'birthdate' => '12/30/1994',
+                'sex' => 'Female',
+                'contact' => '09287399524',
+                'address' => '12th St, Nazareth, Cagayan de Oro, 9000 Misamis Oriental',
+                'occupation' => 'Unemployed',
+                'status' => 'Single',
+                'family_role' => 'Member',
+                'family_id' => '1',
+
+                'occupation_name' => 'PWD',
+                'company_name' => null,
+                'id_num' => null,
+                'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                'resident_id' => '2',
+
+                'proof_type' => 'UMID',
+                'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                
+                'family_name' => 'Fajardo-Timares',
+                'head_name' => 'John Ryle F. Timares',
+                'head_phone' => '09287364517',
+                'family_income' => '100000',
+
+                'email' => 'kytum22@gmail.com',
+                'password' => Hash::make('kylapass'), // still not sure about this
+                'role_id' => '2',
+
+                'state' => 'pending',
+            ),
+            array(
+                'name' => 'Ashley P. Mendoza',
+                'birthdate' => '04/20/1998',
+                'sex' => 'Female',
+                'contact' => '09143567345',
+                'address' => '24th St, Cagayan de Oro, 9000 Misamis Oriental',
+                'occupation' => 'Unemployed',
+                'status' => 'Student',
+                'family_role' => 'Member',
+                'family_id' => '2',
+
+                'occupation_name' => 'College',
+                'company_name' => 'DOST - SEI',
+                'id_num' => '2018102607',
+                'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                'resident_id' => null,
+
+                'proof_type' => 'Police ID/Clearance',
+                'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                
+                'family_name' => 'Paderes-Mendoza',
+                'head_name' => 'Joel Julieto N. Mendoza',
+                'head_phone' => '09246758321',
+                'family_income' => '80000',
+
+                'email' => 'ashleymendoza141@gmail.com',
+                'password' => Hash::make('ashee123'), // still not sure about this
+                'role_id' => '2',
+
+                'state' => 'pending',
+            ),
+            array(
+                'name' => 'John Ryle F. Timares',
+                'birthdate' => '1986-10-01',
+                'sex' => 'Male',
+                'contact' => '09287364657',
+                'address' => '12th St, Nazareth, Cagayan de Oro, 9000 Misamis Oriental',
+                'occupation' => 'Employed',
+                'status' => 'Married',
+                'family_role' => 'Head',
+                'family_id' => '1',
+
+                'occupation_name' => 'Government Employee',
+                'company_name' => 'City Hall',
+                'id_num' => null,
+                'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                'resident_id' => '1',
+
+                'proof_type' => 'Electricity Bill',
+                'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                
+                'family_name' => 'Fajardo-Timares',
+                'head_name' => 'John Ryle F. Timares',
+                'head_phone' => '09287364657',
+                'family_income' => '120000',
+
+                'email' => 'jrft_@gmail.com',
+                'password' => Hash::make('kylapass'), // still not sure about this
+                'role_id' => '2',
+
+                'state' => 'pending',
             ),
         ));
             

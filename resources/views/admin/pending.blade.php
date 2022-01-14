@@ -56,13 +56,28 @@
                   @foreach ($pendingList as $pendingItem)
                     <tr>
                       <th scope="row">{{ $pendingItem->id }}</th>
-                      <td>{{ $pendingItem->name }}</td>
-                      <td>{{ $pendingItem->sex }}</td>
-                      <td>{{ Resident::age($pendingItem->birthdate) }}</td>
-                      <td>{{ $pendingItem->contact }}</td>
-                      <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
-                      <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
-                      <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
+                        <td>{{ $pendingItem->name }}</td>
+                        <td>{{ $pendingItem->sex }}</td>
+                        <td>{{ Resident::age($pendingItem->birthdate) }}</td>
+                        <td>{{ $pendingItem->contact }}</td>
+                      </th>
+                      <th scope="col">
+                        <a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">
+                          MORE
+                        </a>
+                      </th>
+                      <th scope="col">
+                        <a style="text-decoration: none" href="{{ route('accept-request', ['pid'=>$pendingItem->id]) }}"
+                          class="btnn-acc"  class="link" type="button">
+                          ACCEPT
+                        </a>
+                      </th>
+                      <th scope="col">
+                        <a style="text-decoration: none" href="{{ route('accept-request', ['pid'=>$pendingItem->id]) }}"
+                          class="btnn-rej" class="link" type="button">
+                          REJECT
+                        </a>
+                      </th>
                     </tr>
                   @endforeach
                                    

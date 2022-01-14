@@ -5,6 +5,7 @@ use App\Http\Controllers\ResidentPagesController;
 use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PendingRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,7 @@ Route::get('/viewmore', [AdminPagesController::class, 'viewmore'])->name('viewmo
 Route::post('/register-form', [UserController::class, 'add_resident'])->name('reg-resident');
 //Route::post('/profile', [UserController::class, 'edit_resident'])->name('edit-resident');
 Route::match(array('PUT', 'PATCH'), '/profile', [UserController::class, 'edit_resident'])->name('edit-resident');
+
+Route::get('/pending/{pid}', [PendingRequestController::class, 'accept_request'])->name('accept-request');
+Route::get('/pending/{pid}', [PendingRequestController::class, 'reject_request'])->name('reject-request');
+//Route::match(array('PUT', 'PATCH'), '/pending/{pid}', [PendingRequestController::class, 'reject_request'])->name('reject-request');

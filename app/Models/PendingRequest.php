@@ -42,11 +42,13 @@ class PendingRequest extends Model
         'email',
         'password',
         'role_id',
+
+        'state',
     ];
 
     public static function pendingListCount()
     {
-        $list = PendingRequest::pluck('id')->all();
+        $list = PendingRequest::where('state', 'pending')->get();
         return count($list);
     }
 }
