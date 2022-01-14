@@ -13,6 +13,12 @@
     <title>Admin Dashboard</title>
   </head>
   <body>
+    @php
+      use App\Models\PendingRequest;
+      use App\Models\Resident;
+      use App\Models\Family;
+      use App\Models\Occupation;
+    @endphp
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <img class="navbar-brand brgylogo" src="{{ asset('images/brgylogo.png') }}" href="#">
@@ -25,7 +31,7 @@
       <div class="row">
           <div class="col">
           <div class="input-group">
-              <span class="badge  bg-secondary">25</span>
+              <span class="badge  bg-secondary">{{ Family::totalHousehold() }}</span>
               <span class="space"></span>
               <img class="icons" src="{{ asset('images/household.png') }}">
           </div>
@@ -33,7 +39,7 @@
         </div>
         <div class="col">
             <div class="input-group">
-                <span class="badge  bg-secondary">100</span>
+                <span class="badge  bg-secondary">{{ Resident::totalPopulation() }}</span>
                 <span class="space"></span>
                 <img class="icons" src="{{ asset('images/totalpop.png') }}">
             </div>
@@ -41,7 +47,7 @@
         </div>
         <div class="pend"><a class="pend-color" style="text-decoration: none" type="button" href="/pending">
             <div class="input-group">
-                <span class="badge  bg-secondary">25</span>
+                <span class="badge  bg-secondary">{{ PendingRequest::pendingListCount() }}</span>
                 <span class="space"></span>
                 <img class="icons" src="{{ asset('images/pendingreq.png') }}">
             </div>
@@ -58,7 +64,7 @@
       <div class="row">
         <div class="col">
         <div class="input-group">
-            <span class="badge  bg-secondary">25</span>
+            <span class="badge  bg-secondary">{{ Resident::totalFemale() }}</span>
             <span class="space"></span>
             <img class="icons" src="{{ asset('images/female.png') }}">
         </div>
@@ -66,7 +72,7 @@
       </div>
       <div class="col">
           <div class="input-group">
-              <span class="badge  bg-secondary">100</span>
+              <span class="badge  bg-secondary">{{ Resident::totalMale() }}</span>
               <span class="space"></span>
               <img class="icons" src="{{ asset('images/male.png') }}">
           </div>
@@ -74,7 +80,7 @@
       </div>
       <div class="col">
           <div class="input-group">
-              <span class="badge  bg-secondary">25</span>
+              <span class="badge  bg-secondary">{{ Occupation::totalSenior() }}</span>
               <span class="space"></span>
               <img class="icons" src="{{ asset('images/senior.png') }}">
           </div>
@@ -82,7 +88,7 @@
         </div>
         <div class="col">
             <div class="input-group">
-                <span class="badge  bg-secondary">25</span>
+                <span class="badge  bg-secondary">{{ Occupation::totalPWD() }}</span>
                 <span class="space"></span>
                 <img class="icons" src="{{ asset('images/pwd.png') }}">
             </div>

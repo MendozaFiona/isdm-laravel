@@ -35,7 +35,7 @@
                 <thead>
                 
                   <tr>
-                    <th scope="col">Street#</th>
+                    <th scope="col">Request #</th>
                     <th scope="col">Name</th>
                     <th scope="col">Sex</th>
                     <th scope="col">Birthdate</th>
@@ -46,47 +46,26 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Kara Mareh Ladera</td>
-                    <td>F</td>
-                    <td>22</td>
-                    <td>0905776881</td>
-                     <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
-                     <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
-                     <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>0905756181</td>
-                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
-                     <th scope="col"><a style="text-decoration: none" class="btnn-acc" class="link" type="button">ACCEPT</a></th>
-                     <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>0907856181</td>
-                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
-                    <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
-                    <th scope="col"><a style="text-decoration: none"  class="btnn-rej"  class="link" type="button">REJECT</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>0907856181</td>
-                    <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
-                    <th scope="col"><a style="text-decoration: none" class="btnn-acc" class="link" type="button">ACCEPT</a></th>
-                    <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
-                  </tr>
-                 
+                  @php
+                    use App\Models\PendingRequest;
+                    use App\Models\Resident;
+
+                    $pendingList = PendingRequest::all();
+                  @endphp
+
+                  @foreach ($pendingList as $pendingItem)
+                    <tr>
+                      <th scope="row">{{ $pendingItem->id }}</th>
+                      <td>{{ $pendingItem->name }}</td>
+                      <td>{{ $pendingItem->sex }}</td>
+                      <td>{{ Resident::age($pendingItem->birthdate) }}</td>
+                      <td>{{ $pendingItem->contact }}</td>
+                      <th scope="col"><a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">MORE</a></th>
+                      <th scope="col"><a style="text-decoration: none" class="btnn-acc"  class="link" type="button">ACCEPT</a></th>
+                      <th scope="col"><a style="text-decoration: none"  class="btnn-rej" class="link" type="button">REJECT</a></th>
+                    </tr>
+                  @endforeach
+                                   
                 </tbody>
               </table>
         </div>

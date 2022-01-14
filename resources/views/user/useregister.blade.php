@@ -140,6 +140,15 @@
     <!-- LOGO & SYSTEM NAME -->
     <div class="wrap">
     <div class="container-3">
+      <div class="space"></div>
+      <div class="row">
+        <div class="mx-auto">        
+          <a href="/">
+            <button class='button'>CANCEL</button>
+          </a>
+        </div>
+        <div class="space"></div>
+      </div>
       <div class='row'>
         <div class='col'>
       <img class="brgylogo2" src="{{ asset('images/brgylogo.png') }}">
@@ -379,6 +388,11 @@
           <input name="famincome" disabled="disabled" id="head" placeholder="Family Income" type="number" class="form-control" aria-describedby="emailHelp">
         </div>
       </div>
+      @if(session()->has('message'))
+            <script>
+                alert('{{ session()->get('message') }}');
+            </script>
+        @endif
       <div class="row">
         
         <div class="d-grid gap-2 col-6 mx-auto">

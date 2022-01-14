@@ -62,12 +62,43 @@ class DatabaseSeeder extends Seeder
                 'family_id' => '1',
             ),
         ));
+
+        DB::table('resident')->insert(array(
+            array(
+                'name' => 'Kyla Tume F. Timares',
+                'birthdate' => '12/14/1994',
+                'sex' => 'Female',
+                'contact' => '09287389524',
+                'address' => '12th St, Nazareth, Cagayan de Oro, 9000 Misamis Oriental',
+                'occupation' => 'Unemployed',
+                'status' => 'Single',
+                'family_role' => 'Member',
+                'family_id' => '1',
+            ),
+        ));
             
         DB::table('proof')->insert(array(
             array(
                 'proof_type' => 'UMID',
                 'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
                 'resident_id' => '1',
+            ),
+        ));
+
+        DB::table('proof')->insert(array(
+            array(
+                'proof_type' => 'Electricity Bill',
+                'proof_pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                'resident_id' => '2',
+            ),
+        ));
+
+        DB::table('user')->insert(array(
+            array(
+                'email' => 'imae.maturan@gmail.com',
+                'password' => Hash::make('irishpass'), // still not sure about this
+                'role_id' => '1',
+                'admin_id' => '1',
             ),
         ));
             
@@ -82,13 +113,13 @@ class DatabaseSeeder extends Seeder
 
         DB::table('user')->insert(array(
             array(
-                'email' => 'imae.maturan@gmail.com',
-                'password' => Hash::make('irishpass'), // still not sure about this
-                'role_id' => '1',
-                'admin_id' => '1',
+                'email' => 'kytum@gmail.com',
+                'password' => Hash::make('kylapass'), // still not sure about this
+                'role_id' => '2',
+                'resident_id' => '2',
             ),
         ));
-
+        
         DB::table('occupation')->insert(array(
             array(
                 'type' => 'Employed',
@@ -96,6 +127,15 @@ class DatabaseSeeder extends Seeder
                 'company_name' => 'CHED',
                 'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
                 'resident_id' => '1',
+            ),
+        ));
+
+        DB::table('occupation')->insert(array(
+            array(
+                'type' => 'Unemployed',
+                'occupation_name' => 'PWD',
+                'pic' => '7HWgTmdi5WEbltr09GcUfYgL73WAjqduIoSEpNaY.png',
+                'resident_id' => '2',
             ),
         ));
             

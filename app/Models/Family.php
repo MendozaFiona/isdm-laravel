@@ -21,4 +21,10 @@ class Family extends Model
         'head_phone',
         'family_income',
     ];
+
+    public static function totalHousehold()
+    {
+        $list = Family::pluck('id')->all();
+        return count($list);
+    }
 }

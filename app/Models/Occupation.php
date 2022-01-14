@@ -24,4 +24,16 @@ class Occupation extends Model
         'pic',
         'resident_id',
     ];
+    
+    public static function totalSenior()
+    {
+        $list = Occupation::where('occupation_name', 'Senior')->get();
+        return count($list);
+    }
+
+    public static function totalPWD()
+    {
+        $list = Occupation::where('occupation_name', 'PWD')->get();
+        return count($list);
+    }
 }

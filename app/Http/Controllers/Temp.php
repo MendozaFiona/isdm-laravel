@@ -10,7 +10,6 @@ use App\Models\Family;
 use App\Models\Resident;
 use App\Models\Occupation;
 use App\Models\Proof;
-use App\Models\PendingRequest;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -45,33 +44,33 @@ class UserController extends Controller
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        $pending = new PendingRequest;
+        $occupation = new Occupation;
 
         if ($request->hasFile('pic_s')) {
             $request->pic_s->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_s->hashName();
-            $pending->occupation_name = $request->input('occupation_name_s');
-            $pending->company_name = $request->input('company_s');
-            $pending->id_num = $request->input('id_num');
+            $occupation->pic = $request->pic_s->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_s');
+            $occupation->company_name = $request->input('company_s');
+            $occupation->id_num = $request->input('id_num');
         }
 
         if ($request->hasFile('pic_u')) {
             $request->pic_u->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_u->hashName();
-            $pending->occupation_name = $request->input('occupation_name_u');
+            $occupation->pic = $request->pic_u->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_u');
         }
         
         if ($request->hasFile('pic_se')) {
             $request->pic_se->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_se->hashName();
-            $pending->company_name = $request->input('company_se');
+            $occupation->pic = $request->pic_se->hashName();
+            $occupation->company_name = $request->input('company_se');
         }
 
         if ($request->hasFile('pic1')) {
             $request->pic1->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic1->hashName();
-            $pending->occupation_name = $request->input('occupation_name1');
-            $pending->company_name = $request->input('company1');
+            $occupation->pic = $request->pic1->hashName();
+            $occupation->occupation_name = $request->input('occupation_name1');
+            $occupation->company_name = $request->input('company1');
         }
       
         //proof
@@ -89,56 +88,61 @@ class UserController extends Controller
                 return Redirect::back()->withErrors($validator)->withInput();
             }
 
+            $family = new Family;
+
             $famname = $request->input('family_name2');
 
-            $pending->family_name = $famname;
-            $pending->head_name = $request->input('name');
-            $pending->head_phone = $request->input('number');
-            $pending->family_income = $request->input('famincome');
+            $family->family_name = $famname;
+            $family->head_name = $request->input('name');
+            $family->head_phone = $request->input('number');
+            $family->family_income = $request->input('famincome');
+
+            $family->save();
 
             $role = 'Head';
         } else {
             $role = 'Member';
             $famname = $request->input('family_name');
-            $famhead = Family::where('family_name', $famname)->value('head_name');
-            $headphone = Family::where('family_name', $famname)->value('head_phone');
-            $faminc = Family::where('family_name', $famname)->value('family_income');
-            $pending->head_name = $famhead;
-            $pending->head_phone = $headphone;
-            $pending->family_income = $faminc;
         }
 
+        $resident = new Resident;
+
         $famid = Family::where('family_name', $famname)->value('id');
-                $resname = $request->input('name');
+        $resname = $request->input('name');
 
-        $pending->name = $resname;
-        $pending->birthdate = $request->input('birthdate');
-        $pending->sex = $request->input('sex');
-        $pending->contact = $request->input('number');
-        $pending->address = $request->input('address');
-        $pending->occupation = $request->input('type');
-        $pending->status = $request->input('status');
-        $pending->family_role = $role;
-        $pending->family_id = $famid;
+        $resident->name = $resname;
+        $resident->birthdate = $request->input('birthdate');
+        $resident->sex = $request->input('sex');
+        $resident->contact = $request->input('number');
+        $resident->address = $request->input('address');
+        $resident->occupation = $request->input('type');
+        $resident->status = $request->input('status');
+        $resident->family_role = $role;
+        $resident->family_id = $famid;
 
-        $pending->family_name = $famname;
-            
-        $idcount = Resident::latest('id')->first();
-        $resid = $idcount->id + 1;
-
-        //$pending->type = $request->input('type');
-
-        $pending->proof_type = $request->input('prooftype');
-        $pending->proof_pic = $proof_pic;
-
-        //$proof->resident_id = $resid;
+        $resident->save();
         
-        $pending->email = $request->input('email');
-        $pending->password = Hash::make($request->input('password'));
-        $pending->role_id = '2';
-        //$user->resident_id = $resid;
+        $user = new User;
 
-        $pending->save();
+        $resid = Resident::where('name', $resname)->value('id');
+
+        $occupation->type = $request->input('type');
+        $occupation->resident_id = $resid;
+        $occupation->save();
+
+        $proof = new Proof;
+        $proof->proof_type = $request->input('prooftype');
+        $proof->proof_pic = $proof_pic;
+
+        $proof->resident_id = $resid;
+        $proof->save();
+
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->role_id = '2';
+        $user->resident_id = $resid;
+
+        $user->save();
 
         return Redirect::back()->with('message', 'Registration Awaiting for Verification. A message will be sent to notify approval.');
     }
@@ -178,34 +182,32 @@ class UserController extends Controller
         $resident = Resident::find($res_id);
 
         $occupation = Occupation::where('resident_id', $res_id)->first();
-
-        $pending = new PendingRequest;
         
         if ($request->hasFile('pic_s')) {
             $request->pic_s->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_s->hashName();
-            $pending->occupation_name = $request->input('occupation_name_s');
-            $pending->company_name = $request->input('company_s');
-            $pending->id_num = $request->input('id_num');
+            $occupation->pic = $request->pic_s->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_s');
+            $occupation->company_name = $request->input('company_s');
+            $occupation->id_num = $request->input('id_num');
         }
 
         if ($request->hasFile('pic_u')) {
             $request->pic_u->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_u->hashName();
-            $pending->occupation_name = $request->input('occupation_name_u');
+            $occupation->pic = $request->pic_u->hashName();
+            $occupation->occupation_name = $request->input('occupation_name_u');
         }
         
         if ($request->hasFile('pic_se')) {
             $request->pic_se->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_se->hashName();
-            $pending->company_name = $request->input('company_se');
+            $occupation->pic = $request->pic_se->hashName();
+            $occupation->company_name = $request->input('company_se');
         }
 
         if ($request->hasFile('pic1')) {
             $request->pic1->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic1->hashName();
-            $pending->occupation_name = $request->input('occupation_name1');
-            $pending->company_name = $request->input('company1');
+            $occupation->pic = $request->pic1->hashName();
+            $occupation->occupation_name = $request->input('occupation_name1');
+            $occupation->company_name = $request->input('company1');
         }
 
         if ($request->hasFile('proofpic')) {
@@ -213,12 +215,16 @@ class UserController extends Controller
             $proof_pic = $request->proofpic->hashName();
         }
 
-        //$pending->type = $request->input('type');
-        $pending->resident_id = $res_id;
+        $occupation->type = $request->input('type');
+        $occupation->resident_id = $res_id;
+        $occupation->save();
 
         $proof = Proof::where('resident_id', $res_id)->first();
-        $pending->proof_type = $request->input('prooftype');
-        $pending->proof_pic = $proof_pic;
+        $proof->proof_type = $request->input('prooftype');
+        $proof->proof_pic = $proof_pic;
+
+        $proof->resident_id = $res_id;
+        $proof->save();
 
         if($request->input('head') == 'on'){
             $old_famname = Family::where('id', $resident->family_id)->value('family_name');
@@ -230,44 +236,41 @@ class UserController extends Controller
             }
             
             $famname = $request->input('family_name2');
-            
-            $pending->head_name = $request->input('name');
-            $pending->head_phone = $request->input('number');
-            $pending->family_income = $request->input('famincome');
+
+            $family->family_name = $famname;
+            $family->head_name = $request->input('name');
+            $family->head_phone = $request->input('number');
+            $family->family_income = $request->input('famincome');
+
+            $family->save();
 
             $role = 'Head';
         } else {
             $role = 'Member';
             $famname = $request->input('family_name');
-            $famhead = Family::where('family_name', $famname)->value('head_name');
-            $headphone = Family::where('family_name', $famname)->value('head_phone');
-            $faminc = Family::where('family_name', $famname)->value('family_income');
-            
-            $pending->head_name = $famhead;
-            $pending->head_phone = $headphone;
-            $pending->family_income = $faminc;
         }
-        
-        $pending->family_name = $famname;
         
         $famid = Family::where('family_name', $famname)->value('id');
         $resname = $request->input('name');
 
-        $pending->name = $resname;
-        $pending->birthdate = $request->input('birthdate');
-        $pending->sex = $request->input('sex');
-        $pending->contact = $request->input('number');
-        $pending->address = $request->input('address');
-        $pending->occupation = $request->input('type');
-        $pending->status = $request->input('status');
-        $pending->family_role = $role;
-        $pending->family_id = $famid;
-        
-        $pending->email = $request->input('email');
-        $pending->password = Hash::make($request->input('password'));
-        $pending->role_id = '2';
+        $resident->name = $resname;
+        $resident->birthdate = $request->input('birthdate');
+        $resident->sex = $request->input('sex');
+        $resident->contact = $request->input('number');
+        $resident->address = $request->input('address');
+        $resident->occupation = $request->input('type');
+        $resident->status = $request->input('status');
+        $resident->family_role = $role;
+        $resident->family_id = $famid;
 
-        $pending->save();
+        $resident->save();
+        
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->role_id = '2';
+        $user->resident_id = $res_id;
+
+        $user->save();
 
         return Redirect::back()->with('message', 'Edit Profile Waiting for Approval');
 
