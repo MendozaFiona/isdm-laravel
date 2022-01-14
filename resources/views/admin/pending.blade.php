@@ -13,12 +13,14 @@
     <title>Admin Dashboard</title>
   </head>
   <body>
+    
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <img class="navbar-brand brgylogo" src='{{ asset('images/brgylogo.png') }}' href="#">
           <h3>BARANGAY NAZARETH RESIDENTIAL INFORMATION SYSTEM</h3>
-          </div>
+          <a class="btn btn-warning" href="/">HOME</a>
         </div>
+        
       </nav>
   <!-- BUTTONS LEFT -->
   <div class="position-absolute top-50 start-50 translate-middle bottom">
@@ -50,7 +52,7 @@
                     use App\Models\PendingRequest;
                     use App\Models\Resident;
 
-                    $pendingList = PendingRequest::all();
+                    $pendingList = PendingRequest::where('state', 'pending')->get();
                   @endphp
 
                   @foreach ($pendingList as $pendingItem)
@@ -73,7 +75,7 @@
                         </a>
                       </th>
                       <th scope="col">
-                        <a style="text-decoration: none" href="{{ route('accept-request', ['pid'=>$pendingItem->id]) }}"
+                        <a style="text-decoration: none" href="{{ route('reject-request', ['pid'=>$pendingItem->id]) }}"
                           class="btnn-rej" class="link" type="button">
                           REJECT
                         </a>
@@ -83,6 +85,11 @@
                                    
                 </tbody>
               </table>
+              @if(session()->has('message'))
+                <script>
+                    alert('{{ session()->get('message') }}');
+                </script>
+              @endif
         </div>
 
         </form>
