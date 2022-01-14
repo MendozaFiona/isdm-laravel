@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
                 'birthdate' => '10/01/1986',
                 'sex' => 'Male',
                 'contact' => '09287364517',
+                'address' => '12th St, Nazareth, Cagayan de Oro, 9000 Misamis Oriental',
                 'occupation' => 'Employed',
                 'status' => 'Married',
                 'family_role' => 'Head',

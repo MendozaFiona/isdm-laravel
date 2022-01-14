@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResidentPagesController;
 use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,5 @@ Route::get('/pending', [AdminPagesController::class, 'pending'])->name('pending'
 Route::get('/viewmore', [AdminPagesController::class, 'viewmore'])->name('viewmore');
 
 Route::post('/register-form', [UserController::class, 'add_resident'])->name('reg-resident');
-Route::post('/profile', [UserController::class, 'edit_resident'])->name('edit-resident');
+//Route::post('/profile', [UserController::class, 'edit_resident'])->name('edit-resident');
+Route::match(array('PUT', 'PATCH'), '/profile', [UserController::class, 'edit_resident'])->name('edit-resident');
