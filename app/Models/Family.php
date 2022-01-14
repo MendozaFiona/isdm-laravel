@@ -27,4 +27,11 @@ class Family extends Model
         $list = Family::pluck('id')->all();
         return count($list);
     }
+
+    public static function houseHead($famid)
+    {
+        $head = Family::where('id', $famid)->value('head_name');
+        return $head;
+    }
+
 }

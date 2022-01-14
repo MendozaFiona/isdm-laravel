@@ -64,7 +64,7 @@
                         <td>{{ $pendingItem->contact }}</td>
                       </th>
                       <th scope="col">
-                        <a style="text-decoration: none" href="/viewmore" class="btnn-more" type="button">
+                        <a style="text-decoration: none" href="/viewmore/" class="btnn-more" type="button">
                           MORE
                         </a>
                       </th>

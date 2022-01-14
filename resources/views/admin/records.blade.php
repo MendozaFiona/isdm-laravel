@@ -28,13 +28,18 @@
         <div class="container crtstatus">
           <form>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Street Number / Family Name / etc." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Name / Contact " aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button id="btn btn-secondary" type="button" id="button-addon2">SEARCH</button>
               </div>
+              @php
+                use App\Models\Resident;
+                use App\Models\Family;
+
+                $residentList = Resident::all();
+              @endphp
               <table class="table tb">
                 <thead>
                   <tr>
-                    <th scope="col">Street#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Sex</th>
                     <th scope="col">Birthdate</th>
@@ -47,186 +52,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Kara Mareh Ladera</td>
-                    <td>F</td>
-                    <td>22</td>
-                    <td>Student</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0905776881</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Employed</td>
-                    <td>Single</td>
-                    <td>NO</td>
-                    <td>3</td>
-                    <td>0905756181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Unemployed</td>
-                    <td>Single</td>
-                    <td>NO</td>
-                    <td>6</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Widow</td>
-                    <td>NO</td>
-                    <td></td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>3</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                     <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>Single</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>0907856181</td>
-                    <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Jo Nicole</td>
-                    <td>F</td>
-                    <td>30</td>
-                    <td>Manager</td>
-                    <td>YES</td>
-                    <td>5</td>
-                    <td>Single</td>
-                    <td>0907856181</td>
-                    <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
-                  </tr>
+                  @foreach ($residentList as $residentItem)
+                    <tr>
+                      <td>{{ $residentItem->name }}</td>
+                      <td>{{ $residentItem->sex }}</td>
+                      <td>{{ $residentItem->birthdate }}</td>
+                      <td>{{ $residentItem->occupation }}</td>
+                      <td>{{ $residentItem->status }}</td>
+                      <td>{{ Family::houseHead($residentItem->family_id) }}</td>
+                      <td>{{ Resident::householdNum($residentItem->family_id) }}</td>
+                      <td>{{ $residentItem->contact }}</td>
+                      <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
+                    </tr>
+                  @endforeach                  
                 </tbody>
               </table>
         </div>

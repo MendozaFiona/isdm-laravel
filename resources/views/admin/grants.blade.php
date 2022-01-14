@@ -28,156 +28,41 @@
         <div class="container crtstatus">
           <form>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Street Number / Family Name / etc." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Name / Contact" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button id="btn btn-secondary" type="button" id="button-addon2">SEARCH</button>
               </div>
+              @php
+                use App\Models\Resident;
+                use App\Models\Occupation;
+
+                $scholarList = Resident::where('occupation', 'Student')->get();
+              @endphp
               <table class="table tb">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Resident ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Sex</th>
                     <th scope="col">Birthdate</th>
-                    <th scope="col">Occupation</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Grant type</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Sponsor</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Nathalie Nicole Jo Dibdib</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>PESO Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Self-employed</td>
-                    <td>4Ps</td>
-                    <td>Widow</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Dibdib, Nathalie</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Ladera, Kara Mareh</td>
-                    <td>F</td>
-                    <td>02/22/2000</td>
-                    <td>Student</td>
-                    <td>City Scholar</td>
-                    <td>Single</td>
-                    <td>0905776881</td>
-                    <th scope="col"><a class="link" type="button">more</a></th>
-                  </tr>
+                  @foreach ($scholarList as $scholarItem)
+                    <tr>
+                      <th scope="row">{{ $scholarItem->id }}</th>
+                      <td>{{ $scholarItem->name }}</td>
+                      <td>{{ $scholarItem->sex }}</td>
+                      <td>{{ $scholarItem->birthdate }}</td>
+                      <td>{{ Occupation::educLevel($scholarItem->id) }}</td>
+                      <td>{{ Occupation::scholarSponsor($scholarItem->id) }}</td>
+                      <td>{{ $scholarItem->contact }}</td>
+                      <th scope="col"><a class="link" type="button">more</a></th>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
         </div>

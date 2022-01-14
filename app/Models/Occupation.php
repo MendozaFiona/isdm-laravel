@@ -36,4 +36,17 @@ class Occupation extends Model
         $list = Occupation::where('occupation_name', 'PWD')->get();
         return count($list);
     }
+
+    public static function educLevel($resid)
+    {
+        $level = Occupation::where('resident_id', $resid)->value('occupation_name');
+        return $level;
+    }
+
+    public static function scholarSponsor($resid)
+    {
+        $sponsor = Occupation::where('resident_id', $resid)->value('company_name');
+        return $sponsor;
+    }
+
 }

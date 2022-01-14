@@ -52,4 +52,11 @@ class Resident extends Model
     {
         return Carbon::parse($birthdate)->age;
     }
+
+    public static function householdNum($famid)
+    {
+        $members = Resident::where('family_id', $famid)->get();
+        return count($members);
+    }
+
 }
