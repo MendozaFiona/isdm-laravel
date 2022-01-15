@@ -36,29 +36,29 @@
             </div>
           </div>
           <div class="col">
-            <input disabled value="{{ $pending_user->name }}" placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
+            <input placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input disabled value="{{ $pending_user->sex }}" placeholder='Sex' type="sex" class="form-control" id="password" aria-describedby="emailHelp">
+            <input placeholder='Sex' type="sex" class="form-control" id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input disabled value="{{ $pending_user->status }}" placeholder="Status" type="status" class="form-control" id="cpassword" aria-describedby="emailHelp">
+            <input placeholder="Status" type="status" class="form-control" id="cpassword" aria-describedby="emailHelp">
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input disabled value="{{ $pending_user->address }}" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="email" aria-describedby="emailHelp">
+            <input placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="email" aria-describedby="emailHelp">
           </div>
         </div> 
         <div class="row">
           <div class="col">
-            <input disabled value="{{ $pending_user->email }}" placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input disabled value="{{ $pending_user->contact }}" placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
+            <input placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input disabled value="{{ $pending_user->birthdate }}" placeholder="Birthdate"  type="text" class="form-control" id="birthdate" aria-describedby="emailHelp">
+            <input placeholder="Birthdate (mm/dd/yy)"  type="birthdate" class="form-control" id="birthdate" aria-describedby="emailHelp">
           </div>
         
             
@@ -74,10 +74,8 @@
         </div>
         </div>
         <div class="row">
-          <input disabled="disabled" id="sendNewSms"
-            value="{{ $pending_user->occupation }}"
-            name="sendNewSms" placeholder="CITY SCHOLAR" type="input" class="idid" aria-describedby="emailHelp"/>
-          <img class="idimage" src="{{ asset('storage/uploaded_pictures/'.$pending_user->pic) }}">           
+          <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="CITY SCHOLAR" type="input" class="idid" aria-describedby="emailHelp"/>
+          <img class="idimage" src="{{ asset('images/student_card.png') }}">           
         </div>
       
             <div class="space"></div>
@@ -88,28 +86,25 @@
               </div>
               </div>
               <div class="row">
-                <input disabled="disabled" value="{{ $pending_user->proof_type }}" id="sendNewSms"  name="sendNewSms" placeholder="LEASE CONTRACT" type="input" class="idid" aria-describedby="emailHelp"/>
-                <img class="idimage" src="{{ asset('storage/uploaded_pictures/'.$pending_user->proof_pic) }}">           
+                <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="LEASE CONTRACT" type="input" class="idid" aria-describedby="emailHelp"/>
+                <img class="idimage" src="{{ asset('images/lease.png') }}">           
               </div>
             
               <div class="row-3">
                 <div class="space"></div>
-              </div>
               <div class="row">
                 <div class="col-4">
                     <div class="form-check">
-                      HOUSEHOLD HEAD
-                    </div>
+                    HOUSEHOLD HEAD
              
-                </div>
               </div>
               <div class="row" >
                 <div class="input-group ig3">
-                  <input disabled="disabled" value="Family: {{ $pending_user->family_name }}" id="sendNewSms"  name="sendNewSms" placeholder="Family Name" type="input" class="form-control" aria-describedby="emailHelp">
-                  <input disabled="disabled" value="Head: {{ $pending_user->head_name }}" id="sendNewSms1"  name="sendNewSms" placeholder="House Head"  type="input" class="form-control" aria-describedby="emailHelp">
-                  <input disabled="disabled" value="Income: {{ $pending_user->family_income }}" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="Family Name" type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" id="sendNewSms1"  name="sendNewSms" placeholder="House Number"  type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
                 </div>
-              </div>
+            <div class="row">
           
            
             <div class="space"></div>

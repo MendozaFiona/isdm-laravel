@@ -29,7 +29,9 @@ Route::get('/records', [AdminPagesController::class, 'records'])->name('records'
 Route::get('/grants', [AdminPagesController::class, 'grants'])->name('grants');
 Route::get('/news', [AdminPagesController::class, 'news'])->name('news');
 Route::get('/pending', [AdminPagesController::class, 'pending'])->name('pending');
-Route::get('/viewmore', [AdminPagesController::class, 'viewmore'])->name('viewmore');
+
+Route::get('/viewmore/{id}', [AdminPagesController::class, 'viewmore'])->name('viewmore'); //pending
+Route::get('/more/{id}', [AdminPagesController::class, 'more'])->name('more'); //others
 
 Route::post('/register-form', [UserController::class, 'add_resident'])->name('reg-resident');
 //Route::post('/profile', [UserController::class, 'edit_resident'])->name('edit-resident');

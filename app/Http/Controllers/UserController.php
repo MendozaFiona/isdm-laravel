@@ -112,7 +112,10 @@ class UserController extends Controller
                 $resname = $request->input('name');
 
         $pending->name = $resname;
-        $pending->birthdate = $request->input('birthdate');
+
+        $res_bd = date('Y/m/d', strtotime($request->input('birthdate')));
+
+        $pending->birthdate = $res_bd;
         $pending->sex = $request->input('sex');
         $pending->contact = $request->input('number');
         $pending->address = $request->input('address');
@@ -256,7 +259,10 @@ class UserController extends Controller
         $resname = $request->input('name');
 
         $pending->name = $resname;
-        $pending->birthdate = $request->input('birthdate');
+
+        $res_bd = date('Y/m/d', strtotime($request->input('birthdate')));
+        
+        $pending->birthdate = $res_bd;
         $pending->sex = $request->input('sex');
         $pending->contact = $request->input('number');
         $pending->address = $request->input('address');

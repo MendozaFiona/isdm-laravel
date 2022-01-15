@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\PendingRequest;
+
 class AdminPagesController extends Controller
 {
     public function records()
@@ -27,8 +29,16 @@ class AdminPagesController extends Controller
         return view('admin/pending');
     }
 
-    public function viewmore()
+    public function viewmore($id)
     {
-        return view('admin/viewmore'); 
+        $pending_user = PendingRequest::where('id', $id)->first();
+        
+        return view('admin/viewmore')->with('pending_user', $pending_user); //pending 
     }
+
+    public function more($id)
+    {
+        return view('admin/more'); //pending 
+    }
+    
 }
