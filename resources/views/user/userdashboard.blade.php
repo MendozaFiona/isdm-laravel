@@ -54,22 +54,44 @@
         <h3>BARANGAY NAZARETH UPDATES:</h3>
       </div>
       <!-- NEWSFEEDS -->
+      @php
+          use App\Models\News;
+
+          $newsList = News::orderBy('id', 'desc')->get();
+      @endphp
       <table class="table">
         <thead>
           <tbody>
+            @foreach ($newsList as $newsItem)
+              <tr>
+                <th scope="row"></th>
+                <td>
+                  <img class="news1"src="{{ asset('storage/news_pictures/'.$newsItem->news_pic) }}">
+                </td>
+                <td>
+                  <h4>{{ $newsItem->news_title }}</h4>
+                  <h6 class="date">{{ $newsItem->news_datetime }}</h6>
+                  <p>{{ $newsItem->news_desc }}<p>
+                </td>  
+                <td></td>
+              </tr>
+            @endforeach
             <tr>
               <th scope="row"></th>
               <td>
-                <img class="news1"src="{{ asset('images/dash2.jpg') }}">
+                <img class="news1"src="{{ asset('images/dash6.jpg') }}">
               </td>
-              <td>
-                <h4>FOOD PACKS DISTRIBUTION</h4>
-                <h6 class="date">March 23, 2021</h6>
-                <p>Karong Adlawa March 23, 2020
-                Among kinasing.kasing na  pag panghatag sa Katawhan alang sa naapiktuhan sa panginabuhe ilabi na atong PUMs o gitawag na Person Under Monitoring na mao among gi prioridad na matagaan ug Food Packs. Ug ilabi na usab sa atong mga (98) ka Tri.sikad Nazareth drivers samai Trendline ug Petron Terminals ug (90) ka Upper Nazareth Habal2x drivers na naapektuhan usab sa ilang panginabuhian diri sa atong Barangay.
-                Kini na AKSYON pinanguluhan sa atong Barangay Nazareth Council alang sapag pakabana sa atong katawhang naapiktuhan diri sa atong  Barangay.
-                Subli! Kami Andam kanunay sapag....<p>
-                 <a href="https://www.facebook.com/teamrodriguez123/posts/1657836174370423" class="card-link">View More</a>
+              <td class="">
+                <h4>DOST SCHOLARSHIP PROGRAM</h4>
+                <h6 class="date">2021-12-04 18:06:21</h6>
+                <p>Benefits as a DOST Scholar
+                  <br>📍 Tuition and other school fees (for scholars enrolled in private HEIs) - ₱40,000.00 / year
+                  <br>📍 Book Allowance - ₱10,000.00 / year
+                  <br>📍 Monthly Living Allowance - ₱7,000.00 / month
+                  <br>📍 Clothing Allowance - ₱1,000 (1st Sem of 1st Year only)
+                  <br>📍 Transportation Allowance(for those studying outside of home province) - 1 economy-class roundtrip fare
+                  ...</p>
+                 <a href="https://www.facebook.com/photo/?fbid=1238412419987021&set=gm.1924895664356990" class="card-link">View More</a>
                 </td>  
               <td></td>
             </tr>
@@ -80,7 +102,7 @@
               </td>
               <td class="">
                 <h4>MAGMINANTAYON SA SUNOG!</h4>
-                <h6 class="date">November 7, 2021</h6>
+                <h6 class="date">2021-11-07 21:55:02</h6>
                 <p>Mga kaigsuonan gipahimangnuan kita sa kanunay
                 magbinantayon ug mag-amping, aron ang sunug malikayan!
                 Sa kasamtangan gatusan ka mga indibidwal ang na biktima sa sunog sa Upper 28, Nazareth niadtong Oktobre 21, 2019.
@@ -96,19 +118,16 @@
             <tr>
               <th scope="row"></th>
               <td>
-                <img class="news1"src="{{ asset('images/dash6.jpg') }}">
+                <img class="news1"src="{{ asset('images/dash2.jpg') }}">
               </td>
-              <td class="">
-                <h4>DOST SCHOLARSHIP PROGRAM</h4>
-                <h6 class="date">December 4, 2021</h6>
-                <p>Benefits as a DOST Scholar
-                  <br>📍 Tuition and other school fees (for scholars enrolled in private HEIs) - ₱40,000.00 / year
-                  <br>📍 Book Allowance - ₱10,000.00 / year
-                  <br>📍 Monthly Living Allowance - ₱7,000.00 / month
-                  <br>📍 Clothing Allowance - ₱1,000 (1st Sem of 1st Year only)
-                  <br>📍 Transportation Allowance(for those studying outside of home province) - 1 economy-class roundtrip fare
-                  ...</p>
-                 <a href="https://www.facebook.com/photo/?fbid=1238412419987021&set=gm.1924895664356990" class="card-link">View More</a>
+              <td>
+                <h4>FOOD PACKS DISTRIBUTION</h4>
+                <h6 class="date">2021-03-23 19:31:20</h6>
+                <p>Karong Adlawa March 23, 2020
+                Among kinasing.kasing na  pag panghatag sa Katawhan alang sa naapiktuhan sa panginabuhe ilabi na atong PUMs o gitawag na Person Under Monitoring na mao among gi prioridad na matagaan ug Food Packs. Ug ilabi na usab sa atong mga (98) ka Tri.sikad Nazareth drivers samai Trendline ug Petron Terminals ug (90) ka Upper Nazareth Habal2x drivers na naapektuhan usab sa ilang panginabuhian diri sa atong Barangay.
+                Kini na AKSYON pinanguluhan sa atong Barangay Nazareth Council alang sapag pakabana sa atong katawhang naapiktuhan diri sa atong  Barangay.
+                Subli! Kami Andam kanunay sapag....<p>
+                 <a href="https://www.facebook.com/teamrodriguez123/posts/1657836174370423" class="card-link">View More</a>
                 </td>  
               <td></td>
             </tr>

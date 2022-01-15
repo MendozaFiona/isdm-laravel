@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendingRequestController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::get('/records', [AdminPagesController::class, 'records'])->name('records'
 Route::get('/grants', [AdminPagesController::class, 'grants'])->name('grants');
 Route::get('/news', [AdminPagesController::class, 'news'])->name('news');
 Route::get('/pending', [AdminPagesController::class, 'pending'])->name('pending');
+
+Route::post('/news', [NewsController::class, 'news_post'])->name('news-post');
 
 Route::get('/viewmore/{id}', [AdminPagesController::class, 'viewmore'])->name('viewmore'); //pending
 Route::get('/more/{id}', [AdminPagesController::class, 'more'])->name('more'); //others

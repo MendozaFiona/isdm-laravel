@@ -26,13 +26,17 @@
     <tr>
       <td>
         <div class="container crtstatus">
-          <form>
+        
+        <form method="POST" class="{{ route('news-post') }}" enctype="multipart/form-data">
+          @csrf
           <h5>CREATE NEWS:</h5>
+          <input size="50" type="text" name="news_title" placeholder="Title">
           <div class="input-group">
-            <textarea rows="13" cols="80" placeholder="What's up?"></textarea>
+            <textarea name="news_desc" rows="13" cols="80" placeholder="What's up?"></textarea>
           </div>
-          <input class="form-control photo" type="file" id="formFile">
+          <input accept="image/png, image/jpeg" name="news_pic" class="form-control photo" type="file" id="formFile">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            @include('inc.messages')
             <div class="user-submit-box">
               <input type="submit" class="button small" value="POST">
             </div>
