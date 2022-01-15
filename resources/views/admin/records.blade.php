@@ -62,7 +62,7 @@
                       <td>{{ Family::houseHead($residentItem->family_id) }}</td>
                       <td>{{ Resident::householdNum($residentItem->family_id) }}</td>
                       <td>{{ $residentItem->contact }}</td>
-                      <th scope="col"><a href="/viewmore" class="link" type="button">more</a></th>
+                      <th scope="col"><a href="/more/{{ $residentItem->id }}" class="link" type="button">more</a></th>
                     </tr>
                   @endforeach                  
                 </tbody>

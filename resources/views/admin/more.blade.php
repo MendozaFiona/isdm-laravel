@@ -36,29 +36,29 @@
             </div>
           </div>
           <div class="col">
-            <input placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->name }}" placeholder="Name" type="name" class="form-control" id="name" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input placeholder='Sex' type="sex" class="form-control" id="password" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->sex }}" placeholder='Sex' type="sex" class="form-control" id="password" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input placeholder="Status" type="status" class="form-control" id="cpassword" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->status }}" placeholder="Status" type="status" class="form-control" id="cpassword" aria-describedby="emailHelp">
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="email" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->address }}" placeholder="Street No./ Street name/ Lot. No/ Blk No." type="address" class="form-control" id="email" aria-describedby="emailHelp">
           </div>
         </div> 
         <div class="row">
           <div class="col">
-            <input placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input disabled value="{{ $user->email }}" placeholder="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->contact }}" placeholder="Phone number" type="phone" class="form-control" id="phone" aria-describedby="emailHelp">
           </div>
           <div class="col">
-            <input placeholder="Birthdate (mm/dd/yy)"  type="birthdate" class="form-control" id="birthdate" aria-describedby="emailHelp">
+            <input disabled value="{{ $resident->birthdate }}" placeholder="Birthdate"  type="text" class="form-control" id="birthdate" aria-describedby="emailHelp">
           </div>
         
             
@@ -74,8 +74,10 @@
         </div>
         </div>
         <div class="row">
-          <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="CITY SCHOLAR" type="input" class="idid" aria-describedby="emailHelp"/>
-          <img class="idimage" src="{{ asset('images/student_card.png') }}">           
+          <input disabled="disabled" id="sendNewSms"
+            value="{{ $resident->occupation }}"
+            name="sendNewSms" placeholder="CITY SCHOLAR" type="input" class="idid" aria-describedby="emailHelp"/>
+          <img class="idimage" src="{{ asset('storage/uploaded_pictures/'.$occupation->pic) }}">           
         </div>
       
             <div class="space"></div>
@@ -86,25 +88,28 @@
               </div>
               </div>
               <div class="row">
-                <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="LEASE CONTRACT" type="input" class="idid" aria-describedby="emailHelp"/>
-                <img class="idimage" src="{{ asset('images/lease.png') }}">           
+                <input disabled="disabled" value="{{ $proof->proof_type }}" id="sendNewSms"  name="sendNewSms" placeholder="LEASE CONTRACT" type="input" class="idid" aria-describedby="emailHelp"/>
+                <img class="idimage" src="{{ asset('storage/uploaded_pictures/'.$proof->proof_pic) }}">           
               </div>
             
               <div class="row-3">
                 <div class="space"></div>
+              </div>
               <div class="row">
                 <div class="col-4">
                     <div class="form-check">
-                    HOUSEHOLD HEAD
+                      HOUSEHOLD HEAD
+                    </div>
              
+                </div>
               </div>
               <div class="row" >
                 <div class="input-group ig3">
-                  <input disabled="disabled" id="sendNewSms"  name="sendNewSms" placeholder="Family Name" type="input" class="form-control" aria-describedby="emailHelp">
-                  <input disabled="disabled" id="sendNewSms1"  name="sendNewSms" placeholder="House Number"  type="input" class="form-control" aria-describedby="emailHelp">
-                  <input disabled="disabled" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" value="Family: {{ $family->family_name }}" id="sendNewSms"  name="sendNewSms" placeholder="Family Name" type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" value="Head: {{ $family->head_name }}" id="sendNewSms1"  name="sendNewSms" placeholder="House Head"  type="input" class="form-control" aria-describedby="emailHelp">
+                  <input disabled="disabled" value="Income: {{ $family->family_income }}" id="sendNewSms2" name="sendNewSms" placeholder="Family Income" type="input" class="form-control" aria-describedby="emailHelp">
                 </div>
-            <div class="row">
+              </div>
           
            
             <div class="space"></div>

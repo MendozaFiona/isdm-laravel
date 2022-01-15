@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\PendingRequest;
+use App\Models\User;
+use App\Models\Family;
+use App\Models\Resident;
+use App\Models\Occupation;
+use App\Models\Proof;
 
 class AdminPagesController extends Controller
 {
@@ -38,7 +43,17 @@ class AdminPagesController extends Controller
 
     public function more($id)
     {
-        return view('admin/more'); //pending 
+        $resident = Resident::where('id', $id)->first();
+        $user = User::where('resident_id', $resident->id)->first();
+        $occupation = Occupation::where('resident_id', $resident->id)->first();
+        $proof = Proof::where('resident_id', $resident->id)->first();
+        $family = Family::where('id', $resident->family_id)->first();
+
+        return view('admin/more')->with('resident', $resident)
+            ->with('user', $user)
+            ->with('occupation', $occupation)
+            ->with('proof', $proof)
+            ->with('family', $family); //pending 
     }
     
 }

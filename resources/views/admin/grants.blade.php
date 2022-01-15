@@ -60,7 +60,7 @@
                       <td>{{ Occupation::educLevel($scholarItem->id) }}</td>
                       <td>{{ Occupation::scholarSponsor($scholarItem->id) }}</td>
                       <td>{{ $scholarItem->contact }}</td>
-                      <th scope="col"><a class="link" type="button">more</a></th>
+                      <th scope="col"><a class="link" href="/more/{{ $scholarItem->id }}" type="button">more</a></th>
                     </tr>
                   @endforeach
                 </tbody>
