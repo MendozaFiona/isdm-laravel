@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder
                 'family_income' => '120000',
 
                 'email' => 'jrft_@gmail.com',
-                'password' => Hash::make('kylapass'), // still not sure about this
+                'password' => Hash::make('jrftpass'), // still not sure about this
                 'role_id' => '2',
                 'user_id' => '2',
 

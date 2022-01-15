@@ -150,7 +150,7 @@ class UserController extends Controller
         }
         catch(QueryException $ex)
         {
-            return Redirect::back()->withError('This email has already been registered. Please wait for pending request to be verified.')->withInput();
+            return Redirect::back()->withError('This email has already been taken. If you have requested registration with the same email, please wait for pending request to be verified.')->withInput();
         }
 
     }
