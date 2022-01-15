@@ -26,16 +26,16 @@
     <tr>
       <td>
         <div class="container crtstatus">
-          <form>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Name / Contact " aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button id="btn btn-secondary" type="button" id="button-addon2">SEARCH</button>
-              </div>
+              <form action="/records">
+                <div class="input-group mb-3">
+                  <input name="searchitem" type="text" class="form-control" placeholder="Name / Contact " aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <button type="submit" id="btn btn-secondary" type="button" id="button-addon2">SEARCH</button>
+                </div>
+              </form>
               @php
                 use App\Models\Resident;
                 use App\Models\Family;
 
-                $residentList = Resident::all();
               @endphp
               <table class="table tb">
                 <thead>
@@ -69,7 +69,7 @@
               </table>
         </div>
 
-        </form>
+        
       </td>
       <td>
   <!-- CREATE NEWS  -->

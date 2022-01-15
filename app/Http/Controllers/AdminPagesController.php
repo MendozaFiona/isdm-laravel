@@ -14,14 +14,33 @@ use App\Models\Proof;
 
 class AdminPagesController extends Controller
 {
-    public function records()
+    public function records(Request $request)
     {
-        return view('admin/records');
+        $search = $request->query('searchitem');
+
+        if($search != null){
+            $residentList = Resident::where('name', 'LIKE', '%'.$search.'%')
+                ->orWhere('contact', 'LIKE', '%' . $search . '%')->get();
+        } else {
+            $residentList = Resident::all();
+        }
+        
+        return view('admin/records')->with('residentList', $residentList);
     }
 
-    public function grants()
+    public function grants(Request $request)
     {
-        return view('admin/grants');
+        $search = $request->query('searchitem');
+        $scholar = Resident::where('occupation', 'Student');
+
+        if($search != null){
+            $scholarList = $scholar->where('name', 'LIKE', '%'.$search.'%')
+                ->orWhere('contact', 'LIKE', '%' . $search . '%')->get();
+        } else {
+            $scholarList = $scholar->get();
+        }
+
+        return view('admin/grants')->with('scholarList', $scholarList);
     }
 
     public function news()
