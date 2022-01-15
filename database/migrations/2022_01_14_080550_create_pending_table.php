@@ -24,7 +24,7 @@ class CreatePendingTable extends Migration
             $table->string('occupation'); //type
             $table->string('status');
             $table->string('family_role');
-            $table->integer('family_id');
+            $table->integer('family_id')->nullable();
 
             $table->string('occupation_name')->nullable();
             $table->string('company_name')->nullable();

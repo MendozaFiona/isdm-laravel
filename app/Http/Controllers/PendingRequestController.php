@@ -41,7 +41,7 @@ class PendingRequestController extends Controller
             $user = new User;
         }
 
-        if($resident->family_role == 'Head')
+        if($pending_request->family_role == 'Head')
         {                    
             $family->family_name = $pending_request->family_name;
             $family->head_name = $pending_request->head_name;
@@ -49,7 +49,9 @@ class PendingRequestController extends Controller
             $family->family_income = $pending_request->family_income;
 
             $family->save();
-        }
+        }       
+
+        $famid = Family::where('family_name', $pending_request->family_name)->value('id');
         
         $resident->name = $pending_request->name;
         $resident->birthdate = $pending_request->birthdate;
@@ -59,7 +61,7 @@ class PendingRequestController extends Controller
         $resident->occupation = $pending_request->occupation;
         $resident->status = $pending_request->status;
         $resident->family_role = $pending_request->family_role;
-        $resident->family_id = $pending_request->family_id;
+        $resident->family_id = $famid;
 
         $resident->save();
 
