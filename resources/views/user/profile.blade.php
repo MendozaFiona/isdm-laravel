@@ -504,18 +504,20 @@
         </script> -->
         @if(session()->has('message'))
             <script>
-                alert('{{ session()->get('message') }}. Please wait for request verification. A message will be sent upon approval. Thank you!');
+                alert('{{ session()->get('message') }}');
             </script>
         @endif
         <div class="row">
           
           <div class="d-grid gap-2 col-6 mx-auto">
             <button id="myBtn" class="btn btn-warning " type="submit">REQUEST EDIT</button>
-          </div>
-        
+          </div>      
           <div class="space"></div>
         </div>
       </form>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <a type="button" href="/cancel" class="btn btn-danger">CANCEL PRIOR EDIT REQUEST</a>
+      </div>
           
     </div>
 

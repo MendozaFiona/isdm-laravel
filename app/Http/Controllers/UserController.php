@@ -158,7 +158,12 @@ class UserController extends Controller
     public function edit_resident(Request $request)
     {
         $user_id = Auth::user()->id;
+        $prior_req = PendingRequest::where('user_id', $user_id)->where('state', 'pending')->first();
 
+        if($prior_req != null){
+            return Redirect::back()->withError('You have a pending request. Please wait for it to be verified or cancel prior request.')->withInput();
+        }
+        
         $validator = Validator::make($request->all(),[
             // personal info
             'name' => 'required',
@@ -184,125 +189,133 @@ class UserController extends Controller
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        $res_id = Auth::user()->resident_id;
-        
-        $user = User::find($user_id);
-        $resident = Resident::find($res_id);
+        try{
 
-        $occupation = Occupation::where('resident_id', $res_id)->first();
-
-        $pending = new PendingRequest;
-        
-        if ($request->hasFile('pic_s')) {
-            $request->pic_s->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_s->hashName();
-            $pending->occupation_name = $request->input('occupation_name_s');
-            $pending->company_name = $request->input('company_s');
-            $pending->id_num = $request->input('id_num');
-        }
-
-        if ($request->hasFile('pic_u')) {
-            $request->pic_u->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_u->hashName();
-            $pending->occupation_name = $request->input('occupation_name_u');
-        }
-        
-        if ($request->hasFile('pic_se')) {
-            $request->pic_se->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic_se->hashName();
-            $pending->company_name = $request->input('company_se');
-        }
-
-        if ($request->hasFile('pic1')) {
-            $request->pic1->store('uploaded_pictures', 'public');
-            $pending->pic = $request->pic1->hashName();
-            $pending->occupation_name = $request->input('occupation_name1');
-            $pending->company_name = $request->input('company1');
-        }
-
-        if ($request->hasFile('proofpic')) {
-            $request->proofpic->store('uploaded_pictures', 'public');
-            $proof_pic = $request->proofpic->hashName();
-        }
-
-        //$pending->type = $request->input('type');
-        $pending->resident_id = $res_id;
-
-        $proof = Proof::where('resident_id', $res_id)->first();
-        $pending->proof_type = $request->input('prooftype');
-        $pending->proof_pic = $proof_pic;
-
-        if($request->input('head') == 'on'){
-            $old_famname = Family::where('id', $resident->family_id)->value('family_name');
+            $res_id = Auth::user()->resident_id;
             
-            if($request->input('family_name2') != $old_famname){
-                $family = new Family;
-            } else{
-                $family = Family::find($resident->family_id);
+            $user = User::find($user_id);
+            $resident = Resident::find($res_id);
+
+            $occupation = Occupation::where('resident_id', $res_id)->first();
+
+            $pending = new PendingRequest;
+            
+            if ($request->hasFile('pic_s')) {
+                $request->pic_s->store('uploaded_pictures', 'public');
+                $pending->pic = $request->pic_s->hashName();
+                $pending->occupation_name = $request->input('occupation_name_s');
+                $pending->company_name = $request->input('company_s');
+                $pending->id_num = $request->input('id_num');
+            }
+
+            if ($request->hasFile('pic_u')) {
+                $request->pic_u->store('uploaded_pictures', 'public');
+                $pending->pic = $request->pic_u->hashName();
+                $pending->occupation_name = $request->input('occupation_name_u');
             }
             
-            $famname = $request->input('family_name2');
+            if ($request->hasFile('pic_se')) {
+                $request->pic_se->store('uploaded_pictures', 'public');
+                $pending->pic = $request->pic_se->hashName();
+                $pending->company_name = $request->input('company_se');
+            }
+
+            if ($request->hasFile('pic1')) {
+                $request->pic1->store('uploaded_pictures', 'public');
+                $pending->pic = $request->pic1->hashName();
+                $pending->occupation_name = $request->input('occupation_name1');
+                $pending->company_name = $request->input('company1');
+            }
+
+            if ($request->hasFile('proofpic')) {
+                $request->proofpic->store('uploaded_pictures', 'public');
+                $proof_pic = $request->proofpic->hashName();
+            }
+
+            //$pending->type = $request->input('type');
+            $pending->resident_id = $res_id;
+
+            $proof = Proof::where('resident_id', $res_id)->first();
+            $pending->proof_type = $request->input('prooftype');
+            $pending->proof_pic = $proof_pic;
+
+            if($request->input('head') == 'on'){
+                $old_famname = Family::where('id', $resident->family_id)->value('family_name');
+                
+                if($request->input('family_name2') != $old_famname){
+                    $family = new Family;
+                } else{
+                    $family = Family::find($resident->family_id);
+                }
+                
+                $famname = $request->input('family_name2');
+                
+                $pending->head_name = $request->input('name');
+                $pending->head_phone = $request->input('number');
+                $pending->family_income = $request->input('famincome');
+
+                $role = 'Head';
+            } else {
+                $role = 'Member';
+                $famname = $request->input('family_name');
+                $famhead = Family::where('family_name', $famname)->value('head_name');
+                $headphone = Family::where('family_name', $famname)->value('head_phone');
+                $faminc = Family::where('family_name', $famname)->value('family_income');
+                
+                $pending->head_name = $famhead;
+                $pending->head_phone = $headphone;
+                $pending->family_income = $faminc;
+            }
             
-            $pending->head_name = $request->input('name');
-            $pending->head_phone = $request->input('number');
-            $pending->family_income = $request->input('famincome');
-
-            $role = 'Head';
-        } else {
-            $role = 'Member';
-            $famname = $request->input('family_name');
-            $famhead = Family::where('family_name', $famname)->value('head_name');
-            $headphone = Family::where('family_name', $famname)->value('head_phone');
-            $faminc = Family::where('family_name', $famname)->value('family_income');
+            $pending->family_name = $famname;
             
-            $pending->head_name = $famhead;
-            $pending->head_phone = $headphone;
-            $pending->family_income = $faminc;
+            $famid = Family::where('family_name', $famname)->value('id');
+            $resname = $request->input('name');
+
+            $pending->name = $resname;
+
+            $res_bd = date('Y/m/d', strtotime($request->input('birthdate')));
+            
+            $pending->birthdate = $res_bd;
+            $pending->sex = $request->input('sex');
+            $pending->contact = $request->input('number');
+            $pending->address = $request->input('address');
+            $pending->occupation = $request->input('type');
+            $pending->status = $request->input('status');
+            $pending->family_role = $role;
+            $pending->family_id = $famid;
+            
+            $pending->email = $request->input('email');
+            $pending->password = Hash::make($request->input('password'));
+            $pending->role_id = '2';
+            $pending->user_id = Auth::user()->id;
+
+            $pending->state = 'pending';
+
+            $pending->save();
+
+            return Redirect::back()->with('message', 'Edit Profile Waiting for Approval');
         }
-        
-        $pending->family_name = $famname;
-        
-        $famid = Family::where('family_name', $famname)->value('id');
-        $resname = $request->input('name');
-
-        $pending->name = $resname;
-
-        $res_bd = date('Y/m/d', strtotime($request->input('birthdate')));
-        
-        $pending->birthdate = $res_bd;
-        $pending->sex = $request->input('sex');
-        $pending->contact = $request->input('number');
-        $pending->address = $request->input('address');
-        $pending->occupation = $request->input('type');
-        $pending->status = $request->input('status');
-        $pending->family_role = $role;
-        $pending->family_id = $famid;
-        
-        $pending->email = $request->input('email');
-        $pending->password = Hash::make($request->input('password'));
-        $pending->role_id = '2';
-
-        $pending->state = 'pending';
-
-        $pending->save();
-
-        return Redirect::back()->with('message', 'Edit Profile Waiting for Approval');
-
-        /*$new_email = $request->input('email');
-        $new_name = $request->input('name');
-        $new_addr = $request->input('address');
-        $new_contact = $request->input('number');
-        $new_bdate = $request->input('birthdate');*/
-        
-        // works for avoiding adding to pending w/o modifications
-        /*$change = 0;
-
-        if($user->email != $new_email){
-            $user->email = $new_email;
-            $change += 1;
+        catch(QueryException $ex)
+        {
+            return Redirect::back()->withError('You have a pending request. Please wait for it to be verified or cancel prior request.')->withInput();
         }
 
-        $change += 1;*/
+    }
 
+    public function cancel()
+    {
+
+        $prior_req = PendingRequest::where('user_id', Auth::user()->id)->where('state', 'pending')->first();
+
+        if($prior_req == null){
+            return Redirect::back()->with('message', 'There are no prior requests.');
+        }
+        else{
+            $prior_req->state = 'cancelled';
+            $prior_req->save();
+
+            return Redirect::back()->with('message', 'Successfully cancelled request.');
+        }
     }
 }

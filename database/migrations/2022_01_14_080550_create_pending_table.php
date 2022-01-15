@@ -45,6 +45,8 @@ class CreatePendingTable extends Migration
             $table->string('password');
             $table->integer('role_id');
 
+            $table->integer('user_id')->nullable();
+
             $table->string('state');
         });
     }

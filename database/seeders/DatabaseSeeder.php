@@ -186,6 +186,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'kytum22@gmail.com',
                 'password' => Hash::make('kylapass'), // still not sure about this
                 'role_id' => '2',
+                'user_id' => '3',
 
                 'state' => 'pending',
             ),
@@ -217,6 +218,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'ashleymendoza141@gmail.com',
                 'password' => Hash::make('ashee123'), // still not sure about this
                 'role_id' => '2',
+                'user_id' => null,
 
                 'state' => 'pending',
             ),
@@ -248,6 +250,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'jrft_@gmail.com',
                 'password' => Hash::make('kylapass'), // still not sure about this
                 'role_id' => '2',
+                'user_id' => '2',
 
                 'state' => 'pending',
             ),

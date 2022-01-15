@@ -31,6 +31,8 @@ Route::get('/grants', [AdminPagesController::class, 'grants'])->name('grants');
 Route::get('/news', [AdminPagesController::class, 'news'])->name('news');
 Route::get('/pending', [AdminPagesController::class, 'pending'])->name('pending');
 
+Route::get('/cancel', [UserController::class, 'cancel'])->name('cancel');
+
 Route::post('/news', [NewsController::class, 'news_post'])->name('news-post');
 
 Route::get('/viewmore/{id}', [AdminPagesController::class, 'viewmore'])->name('viewmore'); //pending
