@@ -41,7 +41,7 @@ class CreatePendingTable extends Migration
             $table->string('family_income');
 
             
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password');
             $table->integer('role_id');
 

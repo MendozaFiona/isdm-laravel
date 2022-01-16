@@ -159,6 +159,7 @@ class UserController extends Controller
     {
         $user_id = Auth::user()->id;
         $prior_req = PendingRequest::where('user_id', $user_id)->where('state', 'pending')->first();
+        //dd($prior_req);
 
         if($prior_req != null){
             return Redirect::back()->withError('You have a pending request. Please wait for it to be verified or cancel prior request.')->withInput();
